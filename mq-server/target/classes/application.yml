@@ -1,5 +1,10 @@
-eureka.client.fetch-registry: false
-eureka.client.register-with-eureka: false
+server:
+  port: 8002
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
 
 spring:
   rabbitmq:
@@ -19,5 +24,8 @@ spring:
           auto: update
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
-server:
-  port: 8082
+  application:
+      name: cloudStorage-service
+logging:
+  path: E:\log
+  file: E:\log\cloud_storage.log

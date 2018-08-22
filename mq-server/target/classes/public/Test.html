@@ -11,7 +11,7 @@
 <button type="button" class="layui-btn" id="test1">
     <i class="layui-icon">&#xe67c;</i>上传文件到当前文件夹
 </button>
-<button class="layui-btn layui-btn-normal" onclick="back()">上一层</button>
+<button class="layui-btn layui-btn-normal" id = "upload" onclick="back()">上一层</button>
 <button class="layui-btn layui-btn-warm" onclick="createFolderForm()">新建文件夹</button>
 
 <table id="folder" lay-filter="test"></table>
@@ -26,7 +26,7 @@
             table.render({
                 elem: '#file'
                 ,height: 315
-                ,url: 'http://192.168.0.44:8080/showFile' //数据接口
+                ,url: 'http://192.168.0.44:8002/showFile' //数据接口
                 ,where: {
                     'account' : 15927860204,
                     'relativePath' : relativePath
@@ -41,7 +41,7 @@
             table.render({
                 elem: '#folder'
                 ,height: 315
-                ,url: 'http://192.168.0.44:8080/showFolder' //数据接口
+                ,url: 'http://192.168.0.44:8002/showFolder' //数据接口
                 ,where: {
                     'account' : 15927860204,
                     'relativePath' : relativePath
@@ -61,6 +61,7 @@
                         relativePath = relativePath + "/" + obj.data.indexName;
                     }
                     addData();
+                    pageUp();
                 }
             });
         });
@@ -69,11 +70,11 @@
     layui.use('upload', function(){
         var upload = layui.upload;
         //执行实例
-        var uploadInst = upload.render({
+        upload.render({
             accept: 'file',
             method: 'post',
             elem: '#test1', //绑定元素
-            url: 'http://192.168.0.44:8080/uploadFile', //上传接口
+            url: 'http://192.168.0.44:8002/uploadFile', //上传接口
             data: {
                 "account" : 15927860204,
                 "relativePath" : function () {
@@ -81,7 +82,6 @@
                 }
             }
             ,before: function(obj){
-                layer.load();
             }
             ,done: function(res){
                 addData();
@@ -91,36 +91,53 @@
             }
         });
     });
+
+    function pageUp() {
+        if (relativePath === "") {
+            $("#upload").attr("class","layui-btn layui-btn-disabled").attr("onclick","");
+        } else {
+            $("#upload").attr("class","layui-btn layui-btn-normal").attr("onclick","back()");
+        }
+    }
+    pageUp();
 </script>
 <script>
-function back() {
-    var index = relativePath.lastIndexOf("/");
-    relativePath = relativePath.substring(0, index);
-    addData();
-}
-function createFolderForm() {
-    layui.use('layer', function(){
-        var layer = layui.layer;
-        layer.open({
-            type: 1,
-            area: '500px'
-            ,btn: ['提交']
-            ,closeBtn: 2
-            ,yes: function(index, layero){
-                var folderName = $("#folderName").val();
-                if (folderName === "" || folderName === null) {
-                    return;
+    function back() {
+        var index = relativePath.lastIndexOf("/");
+        relativePath = relativePath.substring(0, index);
+        addData();
+        pageUp();
+    }
+    function createFolderForm() {
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            layer.open({
+                type: 1,
+                area: '500px'
+                ,btn: ['提交']
+                ,closeBtn: 2
+                ,yes: function(index, layero){
+                    var folderName = $("#folderName").val();
+                    if (folderName === "" || folderName === null) {
+                        return;
+                    }
+                    $.get("http://192.168.0.44:8002/createFolder", {
+                        "account" : 15927860204,
+                        "relativePath" : function () {
+                            if (relativePath !== "") {
+                                folderName = relativePath + "/" +  folderName;
+                            }
+                            return folderName;
+                        }
+                    }, function () {
+                        addData();
+                        layer.close(index);
+                    })
                 }
-                $.get("http://192.168.0.44:8080/createFolder", {
-                    "account" : 15927860204,
-                    "relativePath" : relativePath + "/"  + folderName
-                });
-                addData();
-            }
-            ,content: '<input type="text" id = "folderName" name="folderName" required lay-verify="required" placeholder="请输入文件夹名称" autocomplete="off" class="layui-input">'
+                ,content: '<input type="text" id = "folderName" name="folderName" required lay-verify="required" placeholder="请输入文件夹名称" autocomplete="off" class="layui-input">'
+            });
         });
-    });
-}
+    }
 </script>
 </body>
 </html>

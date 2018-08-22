@@ -36,6 +36,16 @@ public class FileBo implements Serializable {
         this.relativePath = relativePath;
     }
 
+    public FileBo(String fileName, Long account, String relativePath) {
+        this.fileName = fileName;
+        this.account = account;
+        this.relativePath = relativePath;
+    }
+
     public FileBo() {
+    }
+
+    public String toString() {
+        return "{fileName : " + fileName + ", account : " + account + ", relativePath : " + relativePath + "}";
     }
 }
