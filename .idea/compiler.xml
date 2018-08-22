@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cloud_storage" />
+        <module name="mq-core" />
+        <module name="mq-server" />
+        <module name="mq-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cloud_storage" target="1.8" />
+      <module name="mq-core" target="1.8" />
+      <module name="mq-server" target="1.8" />
+      <module name="mq-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

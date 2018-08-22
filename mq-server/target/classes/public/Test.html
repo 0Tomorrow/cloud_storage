@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+<button type="button" class="layui-btn" id="test1">
+    <i class="layui-icon">&#xe67c;</i>上传文件到当前文件夹
+</button>
+<button class="layui-btn layui-btn-normal" onclick="back()">上一层</button>
+<button class="layui-btn layui-btn-warm" onclick="createFolderForm()">新建文件夹</button>
+
+<table id="folder" lay-filter="test"></table>
+<table id="file" lay-filter="test1"></table>
+
+<script>
+    var relativePath = "";
+    function addData() {
+        layui.use('table', function(){
+            var table = layui.table;
+            //第一个实例
+            table.render({
+                elem: '#file'
+                ,height: 315
+                ,url: 'http://192.168.0.44:8080/showFile' //数据接口
+                ,where: {
+                    'account' : 15927860204,
+                    'relativePath' : relativePath
+                }
+                ,page: true //开启分页
+                ,limit: 10
+                ,cols: [[ //表头
+                    {type: 'checkbox'},
+                    {field: 'fileName', title: '文件名', width:800, event:"click"}
+                ]]
+            });
+            table.render({
+                elem: '#folder'
+                ,height: 315
+                ,url: 'http://192.168.0.44:8080/showFolder' //数据接口
+                ,where: {
+                    'account' : 15927860204,
+                    'relativePath' : relativePath
+                }
+                ,page: true //开启分页
+                ,limit: 10
+                ,cols: [[ //表头
+                    {type: 'checkbox'},
+                    {field: 'indexName', title: '文件夹名', width:800, event:"indexClick"}
+                ]]
+            });
+            table.on('tool(test)', function(obj){
+                if (obj.event === "indexClick") {
+                    if (relativePath === "") {
+                        relativePath = obj.data.indexName;
+                    } else {
+                        relativePath = relativePath + "/" + obj.data.indexName;
+                    }
+                    addData();
+                }
+            });
+        });
+    }
+    addData();
+    layui.use('upload', function(){
+        var upload = layui.upload;
+        //执行实例
+        var uploadInst = upload.render({
+            accept: 'file',
+            method: 'post',
+            elem: '#test1', //绑定元素
+            url: 'http://192.168.0.44:8080/uploadFile', //上传接口
+            data: {
+                "account" : 15927860204,
+                "relativePath" : function () {
+                    return relativePath;
+                }
+            }
+            ,before: function(obj){
+                layer.load();
+            }
+            ,done: function(res){
+                addData();
+            }
+            ,error: function(){
+                //请求异常回调
+            }
+        });
+    });
+</script>
+<script>
+function back() {
+    var index = relativePath.lastIndexOf("/");
+    relativePath = relativePath.substring(0, index);
+    addData();
+}
+function createFolderForm() {
+    layui.use('layer', function(){
+        var layer = layui.layer;
+        layer.open({
+            type: 1,
+            area: '500px'
+            ,btn: ['提交']
+            ,closeBtn: 2
+            ,yes: function(index, layero){
+                var folderName = $("#folderName").val();
+                if (folderName === "" || folderName === null) {
+                    return;
+                }
+                $.get("http://192.168.0.44:8080/createFolder", {
+                    "account" : 15927860204,
+                    "relativePath" : relativePath + "/"  + folderName
+                });
+                addData();
+            }
+            ,content: '<input type="text" id = "folderName" name="folderName" required lay-verify="required" placeholder="请输入文件夹名称" autocomplete="off" class="layui-input">'
+        });
+    });
+}
+</script>
+</body>
+</html>

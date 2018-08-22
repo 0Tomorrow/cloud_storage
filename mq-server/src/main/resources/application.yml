@@ -1,0 +1,23 @@
+eureka.client.fetch-registry: false
+eureka.client.register-with-eureka: false
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: root
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+server:
+  port: 8082
