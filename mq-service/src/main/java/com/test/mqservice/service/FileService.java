@@ -30,7 +30,21 @@ public class FileService {
     IndexRepos indexRepos;
 
     public FileSliceInfo uploadSliceFile(byte[] file, int index, FileSliceInfo fileSliceInfo) {
-        return FileUtil.merge(file, index, fileSliceInfo);
+        FileSliceInfo fileSlice = FileUtil.merge(file, index, fileSliceInfo);
+        if (!fileSlice.isFinish()) {
+            return fileSlice;
+        }
+        String fileName = fileSlice.getFileName();
+        Long account = fileSlice.getAccount();
+        String relativePath = fileSlice.getRelativePath();
+        String filePath = PathConfig.getPath(account, relativePath);
+        IndexInfo indexInfo = indexRepos.findByIndexPath(filePath);
+        if (indexInfo == null) {
+            throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
+        }
+        int indexId = indexInfo.getIndexId();
+        fileRepos.save(new FileInfo(fileName, indexId, account));
+        return fileSlice;
     }
 
     public void creatTempFile(FileSliceInfo fileSliceInfo){

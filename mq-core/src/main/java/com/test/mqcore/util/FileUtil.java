@@ -7,8 +7,6 @@ import java.nio.ByteBuffer;
 
 public class FileUtil {
 
-//    private static final int byteSize = 4 * 1024 * 1024;
-
     public static byte[] fileToStringBuffer(MultipartFile file, Long byteSize) throws Exception {
         InputStream fip = file.getInputStream();
         byte[] data = new byte[1024];
