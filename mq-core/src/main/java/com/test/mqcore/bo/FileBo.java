@@ -5,15 +5,16 @@ import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
+import java.nio.ByteBuffer;
 
 @Data
 public class FileBo implements Serializable {
     private String fileName;
-    private StringBuffer file;
+    private byte[] file;
     private Long account;
     private String relativePath;
 
-    public FileBo(StringBuffer file, String fileName, Long account, String relativePath) {
+    public FileBo(byte[] file, String fileName, Long account, String relativePath) {
         this.fileName = fileName;
         this.file = file;
         this.account = account;
@@ -22,7 +23,7 @@ public class FileBo implements Serializable {
 
     public FileBo(MultipartFile file, Long account, String relativePath) {
         try {
-            this.file = FileUtil.fileToStringBuffer(file);
+            this.file = FileUtil.fileToStringBuffer(file, file.getSize());
         } catch (Exception e) {
             e.printStackTrace();
         }

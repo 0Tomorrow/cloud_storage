@@ -2,6 +2,7 @@ package com.test.mqserver.controller;
 
 import com.test.mqcore.bo.BaseResp;
 import com.test.mqcore.bo.FileResp;
+import com.test.mqcore.bo.FileSliceInfo;
 import com.test.mqserver.service.FileService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,19 @@ public class FileController {
     @Autowired
     FileService fileService;
 
-    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+    @RequestMapping(value = "/handShake", method = RequestMethod.POST, consumes = {"application/x-www-form-urlencoded;charset=UTF-8"})
+    public BaseResp handShake(FileSliceInfo sliceInfo) {
+        fileService.handShake(sliceInfo);
+        return new BaseResp<FileResp>(null);
+    }
+
+    @RequestMapping(value = "/uploadSliceFile", method = RequestMethod.POST, consumes = {"multipart/form-data"})
+    public BaseResp uploadSliceFile(MultipartFile file, @RequestParam("index") int index, @RequestParam("idCode") String idCode) {
+        fileService.uploadSliceFile(file, index, idCode);
+        return new BaseResp<FileResp>(null);
+    }
+
+    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST, consumes = {"application/x-www-form-urlencoded;charset=UTF-8"})
     public BaseResp uploadFile(MultipartFile file, Long account, String relativePath) {
         log.debug("uploadFile account is : {} and relativePath is : {}", account, relativePath);
         fileService.uploadFile(file, account, relativePath);

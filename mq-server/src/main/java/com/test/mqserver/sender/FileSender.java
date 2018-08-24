@@ -1,6 +1,7 @@
 package com.test.mqserver.sender;
 
 import com.test.mqcore.bo.FileBo;
+import com.test.mqcore.bo.FileSliceBo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,14 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileSender {
     @Autowired
     private AmqpTemplate rabbitTemplate;
+
+    public void handShake(FileSliceBo fileSliceBo) {
+        this.rabbitTemplate.convertAndSend("handShake", fileSliceBo);
+    }
+
+    public void uploadSliceFile(FileSliceBo fileSliceBo) {
+        this.rabbitTemplate.convertAndSend("uploadSliceFile", fileSliceBo);
+    }
 
     public void uploadFile(FileBo fileBo) {
         log.debug("uploadFile fileBo : {}", fileBo);

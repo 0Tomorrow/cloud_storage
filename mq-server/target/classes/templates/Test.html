@@ -6,11 +6,15 @@
     <link rel="stylesheet" href="../static/layui/css/layui.css">
     <script src="../static/layui/layui.js"></script>
     <script src="../static/js/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/webuploader/0.1.0/webuploader.html5only.js"></script>
+    <script src="http://cdn.staticfile.org/webuploader/0.1.0/webuploader.html5only.min.js"></script>
 </head>
 <body>
 <button type="button" class="layui-btn" id="upload">
-    <i class="layui-icon">&#xe67c;</i>上传文件到当前文件夹
+    <!--<i class="layui-icon">&#xe67c;</i>上传文件到当前文件夹-->
+    <input type="file" id = "input"/>
 </button>
+
 <button class="layui-btn layui-btn-normal" id = "pageUp" onclick="back()">上一层</button>
 <button class="layui-btn layui-btn-warm" onclick="createFolderForm()">新建文件夹</button>
 
@@ -25,6 +29,7 @@
 
 <script>
     var relativePath = "";
+    var account = "15927860204";
     function addData() {
         layui.use('table', function(){
             var table = layui.table;
@@ -34,7 +39,7 @@
                 ,height: 315
                 ,url: 'http://localhost:8002/showFile' //数据接口
                 ,where: {
-                    'account' : 15927860204,
+                    'account' : account,
                     'relativePath' : relativePath
                 }
                 ,page: true //开启分页
@@ -50,7 +55,7 @@
                 ,height: 315
                 ,url: 'http://localhost:8002/showFolder' //数据接口
                 ,where: {
-                    'account' : 15927860204,
+                    'account' : account,
                     'relativePath' : relativePath
                 }
                 ,page: true //开启分页
@@ -79,7 +84,7 @@
                     layer.confirm('真的删除行么', function(index){
                         obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
                         layer.close(index);
-                        $.get("http://localhost:8080/deleteFolder", {"folderName" : data.indexName, "account" : 15927860204, "relativePath" : relativePath})
+                        $.get("http://localhost:8002/deleteFolder", {"folderName" : data.indexName, "account" : account, "relativePath" : relativePath})
                     });
                 } else if(layEvent === 'edit'){ //编辑
                     obj.update({
@@ -98,7 +103,7 @@
                     layer.confirm('真的删除行么', function(index){
                         obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
                         layer.close(index);
-                        $.get("http://localhost:8080/deleteFile", {"fileName" : data.fileName, "account" : 15927860204, "relativePath" : relativePath})
+                        $.get("http://localhost:8002/deleteFile", {"fileName" : data.fileName, "account" : account, "relativePath" : relativePath})
                     });
                 } else if(layEvent === 'edit'){ //编辑
                     obj.update({
@@ -110,30 +115,83 @@
         });
     }
     addData();
-    layui.use('upload', function(){
-        var upload = layui.upload;
-        //执行实例
-        upload.render({
-            accept: 'file',
-            method: 'post',
-            elem: '#upload', //绑定元素
-            url: 'http://localhost:8002/uploadFile', //上传接口
-            data: {
-                "account" : 15927860204,
-                "relativePath" : function () {
-                    return relativePath;
+    // layui.use('upload', function(){
+    //     var upload = layui.upload;
+    //     //执行实例
+    //     upload.render({
+    //         accept: 'file',
+    //         method: 'post',
+    //         elem: '#upload', //绑定元素
+    //         url: 'http://localhost:8002/uploadFile', //上传接口
+    //         data: {
+    //             "account" : account,
+    //             "relativePath" : function () {
+    //                 return relativePath;
+    //             }
+    //         },
+    //         before: function(obj){
+    //             obj.pushFile();
+    //             obj.preview(function(index, file, result){
+    //                 console.log(index); //得到文件索引
+    //                 console.log(file); //得到文件对象
+    //                 file.slice()
+    //                 console.log(result); //得到文件base64编码，比如图片
+    //             });
+    //         }
+    //         ,done: function(res){
+    //             addData();
+    //         }
+    //         ,error: function(){
+    //             //请求异常回调
+    //         }
+    //     });
+    // });
+
+    document.querySelector('input').onchange = function() {
+        var sliceSize = 1024 * 1024;
+        var timestamp = (new Date()).getTime();
+        var file = this.files[0];
+        console.log(file);
+        var fileSize = file.size;
+        var count = parseInt(fileSize / sliceSize + 1);
+        var idCode = account + timestamp;
+        var fileName = file.name;
+
+        $.ajax({
+            type : "post",
+            url : "http://localhost:8002/handShake",
+            data : {"idCode" : idCode, "fileSize" : fileSize, "count" : count,
+            "sliceSize" : sliceSize, "fileName" : fileName, "account" : account, "relativePath" : relativePath},
+            contentType : "application/x-www-form-urlencoded",
+            success : function () {
+                for (var i = 0; i < count; i++) {
+                    var start = i * sliceSize;
+                    var end = (i + 1) * sliceSize;
+                    if (i === count - 1) {
+                        end = fileSize;
+                    }
+                    var sliceFile = file.slice(start, end);
+                    console.log(sliceFile)
+                    var form_data = new FormData();
+                    form_data.append("index", i);
+                    form_data.append("idCode", idCode);
+                    form_data.append("file", sliceFile);
+                    $.ajax({
+                        type: "post",
+                        url: "http://localhost:8002/uploadSliceFile",
+                        data: form_data,
+                        // contentType : "multipart/form-data",
+                        processData : false,
+                        contentType : false,
+                        dataType: "json"
+                    })
                 }
-            }
-            ,before: function(obj){
-            }
-            ,done: function(res){
-                addData();
-            }
-            ,error: function(){
-                //请求异常回调
-            }
+            },
+            dataType : "json"
         });
-    });
+    };
+
+
 
     function pageUp() {
         if (relativePath === "") {
@@ -165,7 +223,7 @@ function createFolderForm() {
                     return;
                 }
                 $.get("http://localhost:8002/createFolder", {
-                    "account" : 15927860204,
+                    "account" : account,
                     "relativePath" : function () {
                         if (relativePath !== "") {
                             folderName = relativePath + "/" +  folderName;

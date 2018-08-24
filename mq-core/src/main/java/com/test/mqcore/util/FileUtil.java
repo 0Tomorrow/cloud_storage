@@ -3,32 +3,27 @@ package com.test.mqcore.util;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.nio.ByteBuffer;
 
 public class FileUtil {
-    public static StringBuffer fileToStringBuffer(MultipartFile file) throws Exception {
-        String fileName = file.getOriginalFilename();
-        String prefix=fileName.substring(fileName.lastIndexOf("."));
-        File streamFile = File.createTempFile(String.valueOf(System.currentTimeMillis()), prefix);
-        file.transferTo(streamFile);
 
-        FileInputStream fip = new FileInputStream(streamFile);
-        InputStreamReader reader = new InputStreamReader(fip, "UTF-8");
-        StringBuffer sb = new StringBuffer();
-        while (reader.ready()) {
-            sb.append((char) reader.read());
+//    private static final int byteSize = 4 * 1024 * 1024;
+
+    public static byte[] fileToStringBuffer(MultipartFile file, Long byteSize) throws Exception {
+        InputStream fip = file.getInputStream();
+        byte[] data = new byte[1024];
+        ByteBuffer buffer = ByteBuffer.allocate(Integer.parseInt(byteSize + ""));
+        int fileSize = 0;
+        int len;
+        while ((len = fip.read(data)) != -1) {
+            fileSize += len;
+            buffer.put(data,0,len);
         }
-        reader.close();
         fip.close();
-        deleteFile(streamFile);
-        return sb;
+        ByteBuffer fileBuffer = ByteBuffer.allocate(fileSize);
+        data = fileBuffer.put(buffer.array(), 0, fileSize).array();
+        return data;
     }
 
-    private static void deleteFile(File... files) {
-        for (File file : files) {
-            if (file.exists()) {
-                file.delete();
-            }
-        }
-    }
 
 }

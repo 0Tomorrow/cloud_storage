@@ -1,5 +1,6 @@
 package com.test.mqservice.service;
 
+import com.test.mqcore.bo.FileSliceInfo;
 import com.test.mqcore.entity.FileInfo;
 import com.test.mqcore.entity.IndexInfo;
 import com.test.mqcore.config.ErrorCode;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -27,7 +29,15 @@ public class FileService {
     @Autowired
     IndexRepos indexRepos;
 
-    public void uploadFile(StringBuffer file, String fileName, Long account, String relativePath) {
+    public FileSliceInfo uploadSliceFile(byte[] file, int index, FileSliceInfo fileSliceInfo) {
+        return FileUtil.merge(file, index, fileSliceInfo);
+    }
+
+    public void creatTempFile(FileSliceInfo fileSliceInfo){
+        FileUtil.createTempFile(fileSliceInfo);
+    }
+
+    public void uploadFile(byte[] file, String fileName, Long account, String relativePath) {
         if (fileName == null || fileName.equals("")) {
             throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
         }
@@ -77,11 +87,10 @@ public class FileService {
         indexRepos.save(new IndexInfo(folderName, prevId, path, account));
     }
 
-    public void deleteFile(String fileName, Long account, String relativePath) {
+    public void deleteFile(String fileName, String path) {
         if (fileName == null || fileName.equals("")) {
             throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
         }
-        String path = PathConfig.getPath(account, relativePath);
         IndexInfo indexInfo = indexRepos.findByIndexPath(path);
         if (indexInfo == null) {
             throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
@@ -95,15 +104,13 @@ public class FileService {
         fileRepos.deleteAllByFileNameAndIndexId(fileName, indexId);
     }
 
-    public void deleteFolder(Long account, String relativePath) {
-        String path = PathConfig.getPath(account, relativePath);
-        delAllFile(account, relativePath);
+    public void deleteFolder(String path) {
+        delAllFile(path);
         indexRepos.deleteAllByIndexPath(path);
         FileUtil.deleteFolder(path);
     }
 
-    public void delAllFile(Long account, String relativePath) {
-        String path = PathConfig.getPath(account, relativePath);
+    public void delAllFile(String path) {
         IndexInfo indexInfo = indexRepos.findByIndexPath(path);
         if (indexInfo == null) {
             throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
@@ -120,7 +127,7 @@ public class FileService {
         List<IndexInfo> indexList = indexRepos.findAllByPrevId(indexId);
         if (indexList != null) {
             for (IndexInfo folder : indexList) {
-                deleteFolder(account, relativePath + "/" + folder.getIndexName());
+                deleteFolder(path + "/" + folder.getIndexName());
             }
         }
     }
