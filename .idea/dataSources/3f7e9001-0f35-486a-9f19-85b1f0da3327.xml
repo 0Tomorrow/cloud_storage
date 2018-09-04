@@ -930,6 +930,7 @@
     </column>
     <column id="234" parent="229" name="content">
       <Position>2</Position>
+      <Comment>聊天内容</Comment>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>

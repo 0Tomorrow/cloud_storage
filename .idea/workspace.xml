@@ -1,17 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ff53023-d68a-4794-9ad9-31cd0a58b93e" name="Default" comment="添加断点上传">
+    <list default="true" id="9ff53023-d68a-4794-9ad9-31cd0a58b93e" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/DownloadController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/TestController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/test/Test.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/util/PdfUtil.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/src/main/resources/templates/download.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/src/test/java/com/test/cloud_storage/test.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/src/test/java/com/test/cloud_storage/test1.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/bo/BaseResp.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/bo/FileBo.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/bo/FileResp.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/bo/FileSliceInfo.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/cache/FileSliceCache.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/config/CacheConfig.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/config/PathConfig.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/config/SpringContextProvider.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/controller/DownloadController.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/controller/TestController.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/entity/UserInfo.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/exception/CustomException.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/receiver/FileReceiver.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/test/Test.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/util/FileUtil$1.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/util/FileUtil$2.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/util/FileUtil$3.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/util/FileUtil.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/util/PdfUtil.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/classes/templates/download.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/test-classes/com/test/cloud_storage/test.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mq-server/target/test-classes/com/test/cloud_storage/test1.class" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3f7e9001-0f35-486a-9f19-85b1f0da3327.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/3f7e9001-0f35-486a-9f19-85b1f0da3327.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_16_22.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/util/FileUtil.java" afterPath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/util/FileUtil.java" />
+      <change beforePath="$PROJECT_DIR$/cloud_storage.iml" afterPath="$PROJECT_DIR$/cloud_storage.iml" />
+      <change beforePath="$PROJECT_DIR$/mq-core/mq-core.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/pom.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/BaseResp.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/bo/BaseResp.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/FileBo.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/bo/FileBo.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/FileResp.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/bo/FileResp.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/FileSliceBo.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/bo/FileSliceBo.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/FileSliceInfo.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/bo/FileSliceInfo.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/config/ErrorCode.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/config/ErrorCode.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/config/PathConfig.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/config/PathConfig.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/config/RabbitConfig.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/config/RabbitConfig.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/config/SpringContextProvider.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/config/SpringContextProvider.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/entity/FileInfo.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/entity/FileInfo.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/entity/IndexInfo.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/entity/IndexInfo.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/entity/UserInfo.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/entity/UserInfo.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/exception/CustomException.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/exception/CustomException.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/service/MessageService.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/service/MessageService.java" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/util/FileUtil.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/main/resources/application.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/src/test/java/com/test/mqcore/MqCoreApplicationTests.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/application.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/bo/BaseResp.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/bo/FileBo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/bo/FileResp.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/bo/FileSliceBo.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/bo/FileSliceBo.class" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/bo/FileSliceInfo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/config/ErrorCode.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/config/ErrorCode.class" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/config/PathConfig.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/config/SpringContextProvider.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/entity/FileInfo.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/entity/FileInfo.class" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/entity/IndexInfo.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/entity/IndexInfo.class" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/entity/UserInfo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/exception/CustomException.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/service/MessageService.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/service/MessageService.class" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/classes/com/test/mqcore/util/FileUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-core/target/test-classes/com/test/mqcore/MqCoreApplicationTests.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-server/mq-server.iml" afterPath="$PROJECT_DIR$/mq-server/mq-server.iml" />
+      <change beforePath="$PROJECT_DIR$/mq-server/pom.xml" afterPath="$PROJECT_DIR$/mq-server/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/CloudStorageApplication.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/CloudStorageApplication.java" />
+      <change beforePath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/FileController.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/FileController.java" />
+      <change beforePath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/ShowController.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/ShowController.java" />
+      <change beforePath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/FileRepos.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/FileRepos.java" />
+      <change beforePath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/IndexRepos.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/IndexRepos.java" />
+      <change beforePath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/UserRepos.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/UserRepos.java" />
+      <change beforePath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/sender/FileSender.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/sender/FileSender.java" />
+      <change beforePath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/service/ShowService.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/service/ShowService.java" />
       <change beforePath="$PROJECT_DIR$/mq-server/src/main/resources/templates/Test.html" afterPath="$PROJECT_DIR$/mq-server/src/main/resources/templates/Test.html" />
+      <change beforePath="$PROJECT_DIR$/mq-server/src/test/java/com/test/cloud_storage/CloudStorageApplicationTests.java" afterPath="$PROJECT_DIR$/mq-server/src/test/java/com/test/cloud_storage/CloudStorageApplicationTests.java" />
+      <change beforePath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/CloudStorageApplication.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/CloudStorageApplication.class" />
       <change beforePath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/controller/FileController.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/controller/FileController.class" />
-      <change beforePath="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/service/FileService.java" afterPath="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/service/FileService.java" />
-      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/service/FileService.class" afterPath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/service/FileService.class" />
-      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/util/FileUtil$1.class" afterPath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/util/FileUtil$1.class" />
-      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/util/FileUtil$2.class" afterPath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/util/FileUtil$2.class" />
-      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/util/FileUtil$3.class" afterPath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/util/FileUtil$3.class" />
-      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/util/FileUtil.class" afterPath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/util/FileUtil.class" />
+      <change beforePath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/controller/ShowController.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/controller/ShowController.class" />
+      <change beforePath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/repository/FileRepos.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/repository/FileRepos.class" />
+      <change beforePath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/repository/IndexRepos.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/repository/IndexRepos.class" />
+      <change beforePath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/repository/UserRepos.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/repository/UserRepos.class" />
+      <change beforePath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/sender/FileSender.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/sender/FileSender.class" />
+      <change beforePath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/service/FileService.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/service/FileService.class" />
+      <change beforePath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/service/ShowService.class" afterPath="$PROJECT_DIR$/mq-server/target/classes/com/test/mqserver/service/ShowService.class" />
+      <change beforePath="$PROJECT_DIR$/mq-server/target/classes/templates/Test.html" afterPath="$PROJECT_DIR$/mq-server/target/classes/templates/Test.html" />
+      <change beforePath="$PROJECT_DIR$/mq-server/target/test-classes/com/test/cloud_storage/CloudStorageApplicationTests.class" afterPath="$PROJECT_DIR$/mq-server/target/test-classes/com/test/cloud_storage/CloudStorageApplicationTests.class" />
+      <change beforePath="$PROJECT_DIR$/mq-service/mq-service.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/pom.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/MqServiceApplication.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/cache/FileSliceCache.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/cache/FileSliceCache.java" />
+      <change beforePath="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/config/CacheConfig.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/config/CacheConfig.java" />
+      <change beforePath="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/receiver/FileReceiver.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/receiver/FileReceiver.java" />
+      <change beforePath="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/repository/FileRepos.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/repository/IndexRepos.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/repository/UserRepos.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/service/FileService.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/service/FileService.java" />
+      <change beforePath="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/util/FileUtil.java" afterPath="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/util/FileUtil.java" />
+      <change beforePath="$PROJECT_DIR$/mq-service/src/main/resources/application.yml" afterPath="$PROJECT_DIR$/mq-server/src/main/resources/application.yml" />
+      <change beforePath="$PROJECT_DIR$/mq-service/src/test/java/com/test/mqservice/MqServiceApplicationTests.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/src/test/java/com/test/mqservice/cache/FileSliceCacheTest.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/application.yml" afterPath="$PROJECT_DIR$/mq-server/target/classes/application.yml" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/MqServiceApplication.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/cache/FileSliceCache.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/config/CacheConfig.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/receiver/FileReceiver.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/repository/FileRepos.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/repository/IndexRepos.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/repository/UserRepos.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/service/FileService.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/util/FileUtil$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/util/FileUtil$2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/util/FileUtil$3.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/classes/com/test/mqservice/util/FileUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/test-classes/com/test/mqservice/MqServiceApplicationTests.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mq-service/target/test-classes/com/test/mqservice/cache/FileSliceCacheTest.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,65 +152,42 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="test@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="test@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="test@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="test: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WebSocketConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/config/WebSocketConfig.java">
+      <file leaf-file-name="Test.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/test/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/FileController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+            <state relative-caret-position="240">
+              <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
               <folding>
-                <element signature="method#handShake#0;class#FileController#0" expanded="false" />
-                <element signature="method#uploadSliceFile#0;class#FileController#0" expanded="false" />
-                <element signature="method#uploadFile#0;class#FileController#0" expanded="false" />
-                <element signature="method#createFolder#0;class#FileController#0" expanded="false" />
-                <element signature="method#deleteFile#0;class#FileController#0" expanded="false" />
-                <element signature="method#deleteFolder#0;class#FileController#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mq-server/src/main/resources/templates/Test.html">
+      <file leaf-file-name="TestController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/TestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="191" column="49" lean-forward="false" selection-start-line="191" selection-start-column="49" selection-end-line="191" selection-end-column="49" />
+            <state relative-caret-position="360">
+              <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
               <folding>
-                <element signature="n#script#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#1856#5473#0" expanded="false" />
-                <element signature="e#1979#2568#0" expanded="false" />
-                <element signature="e#2596#3196#0" expanded="false" />
-                <element signature="e#3249#4477#0" expanded="false" />
-                <element signature="e#4528#5453#0" expanded="false" />
-                <element signature="e#5493#5527#0" expanded="false" />
-                <element signature="e#8378#8631#0" expanded="false" />
-                <element signature="e#8666#8818#0" expanded="false" />
-                <element signature="e#8851#10067#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CloudStorageApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/CloudStorageApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,9 +198,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="JUnit4 Test Class" />
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
@@ -147,57 +237,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/test/cloud_storage/controller/HelloReceiver.java" />
-        <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/service/MessageService.java" />
-        <option value="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/FileInfo.java" />
-        <option value="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/FileResp.java" />
-        <option value="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/config/ErrorCode.java" />
-        <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/controller/HelloReceiver.java" />
-        <option value="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/BaseResp.java" />
-        <option value="$PROJECT_DIR$/mq-service/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/config/RabbitConfig.java" />
-        <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/service/ShowService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/test/cloud_storage/repository/UserRepos.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/test/cloud_storage/service/ShowService.java" />
-        <option value="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/service/MessageService.java" />
-        <option value="$PROJECT_DIR$/mq-core/pom.xml" />
-        <option value="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/config/SpringContextProvider.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/test/cloud_storage/CloudStorageApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/test/cloud_storage/controller/ShowController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/Test.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/test/cloud_storage/controller/FileController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/test/cloud_storage/Util/FileUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/test/cloud_storage/sender/FileSender.java" />
         <option value="$PROJECT_DIR$/mq-server/src/main/resources/public/Test.html" />
-        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/FileRepos.java" />
-        <option value="$PROJECT_DIR$/mq-server/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/repository/FileRepos.java" />
         <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/repository/IndexRepos.java" />
         <option value="$PROJECT_DIR$/mq-core/src/test/java/com/test/mqcore/test.java" />
         <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/FileSliceRepos.java" />
-        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/cache/FileSliceCache.java" />
-        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/CloudStorageApplication.java" />
-        <option value="$PROJECT_DIR$/mq-server/pom.xml" />
         <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/MqServiceApplication.java" />
-        <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/cache/FileSliceCache.java" />
-        <option value="$PROJECT_DIR$/mq-service/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/mq-service/pom.xml" />
         <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/config/CacheConfig.java" />
         <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/sender/FileSender.java" />
-        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/service/FileService.java" />
         <option value="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/FileSliceInfo.java" />
-        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/FileController.java" />
         <option value="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/FileBo.java" />
         <option value="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/FileSliceBo.java" />
         <option value="$PROJECT_DIR$/mq-service/src/test/java/com/test/mqservice/cache/FileSliceCacheTest.java" />
-        <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/receiver/FileReceiver.java" />
-        <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/util/FileUtil.java" />
-        <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/service/FileService.java" />
         <option value="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/util/FileUtil.java" />
         <option value="$PROJECT_DIR$/mq-server/src/main/resources/static/js/fileJs/uploadShow.js" />
         <option value="$PROJECT_DIR$/mq-server/src/main/resources/templates/Test.html" />
+        <option value="$PROJECT_DIR$/mq-server/src/test/java/com/test/cloud_storage/CloudStorageApplicationTests.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/FileController.java" />
+        <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/receiver/FileReceiver.java" />
+        <option value="$PROJECT_DIR$/mq-service/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/util/FileUtil.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/DownloadController.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/service/ShowService.java" />
+        <option value="$PROJECT_DIR$/mq-service/src/test/java/com/test/mqservice/test.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/UserRepos.java" />
+        <option value="$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/config/PathConfig.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/resources/templates/download.html" />
+        <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqserver/cache/FileSliceCache.java" />
+        <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/cache/FileSliceCache.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/cache/FileSliceCache.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/IndexRepos.java" />
+        <option value="$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/service/FileService.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/util/PdfUtil.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/entity/UserInfo.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/exception/CustomException.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/service/MessageService.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/util/FileUtil.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/service/FileService.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/FileRepos.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/receiver/FileReceiver.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/config/CacheConfig.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/bo/FileSliceInfo.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/bo/FileBo.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/bo/FileSliceBo.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/test/java/com/test/cloud_storage/test.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/mq-server/src/test/java/com/test/cloud_storage/test1.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/mq-server/pom.xml" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/CloudStorageApplication.java" />
+        <option value="$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/test/Test.java" />
       </list>
     </option>
   </component>
@@ -231,6 +321,12 @@
           <item name="mq-server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
         </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="mq-server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+          <item name="org.springframework.data:spring-data-redis:2.0.9.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
+        </path>
       </expand>
       <select />
     </treeState>
@@ -257,10 +353,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -271,32 +367,6 @@
             <path>
               <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
               <item name="mq-server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -328,16 +398,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mqserver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mqserver" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
@@ -357,7 +417,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mqserver" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
@@ -365,114 +425,7 @@
               <item name="mq-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mqserver" type="462c0819:PsiDirectoryNode" />
-              <item name="sender" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mqserver" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mqservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mqservice" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mqservice" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mqservice" type="462c0819:PsiDirectoryNode" />
-              <item name="receiver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mqservice" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mqservice" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloud_storage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloud_storage" type="462c0819:PsiDirectoryNode" />
-              <item name="mq-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mqservice" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -495,8 +448,16 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../cloud_storage_server" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="JPA.DatabaseSchemaImportDialog" value="3f7e9001-0f35-486a-9f19-85b1f0da3327" />
   </component>
   <component name="RecentsManager">
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="" />
+      <recent name="com.test.mqserver.test" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.test.mqservice.cache" />
     </key>
@@ -519,6 +480,7 @@
       <recent name="com.test.cloud_storage.config" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\springcloud\cloud_storage\mq-server\src\main\java\com\test\mqserver\config" />
       <recent name="C:\Users\Administrator\Desktop\ideaproject\cloud_storage\mq-server" />
       <recent name="C:\Users\Administrator\Desktop\ideaproject\cloud_storage\mq-core\src\main\java\com\test\mqcore\config" />
     </key>
@@ -535,7 +497,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MqServiceApplication">
+  <component name="RunManager" selected="Spring Boot.CloudStorageApplication">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -557,20 +519,39 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="FileSliceCacheTest.getFileSliceInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.test.mqservice.cache.*" />
+          <option name="PATTERN" value="com.test.cloud_storage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="mq-service" />
+      <option name="MAIN_CLASS_NAME" value="com.test.cloud_storage.test" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.test.mqservice.cache" />
-      <option name="MAIN_CLASS_NAME" value="com.test.mqservice.cache.FileSliceCacheTest" />
-      <option name="METHOD_NAME" value="getFileSliceInfo" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="mq-server" />
+      <envs />
+    </configuration>
+    <configuration name="CloudStorageApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.test.cloud_storage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="mq-server" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.test.cloud_storage" />
+      <option name="MAIN_CLASS_NAME" value="com.test.cloud_storage.CloudStorageApplicationTests" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -582,19 +563,19 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="FileSliceCacheTest.putFileSliceInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CloudStorageApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.test.mqservice.cache.*" />
+          <option name="PATTERN" value="com.test.cloud_storage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="mq-service" />
+      <module name="mq-server" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.test.mqservice.cache" />
-      <option name="MAIN_CLASS_NAME" value="com.test.mqservice.cache.FileSliceCacheTest" />
-      <option name="METHOD_NAME" value="putFileSliceInfo" />
+      <option name="PACKAGE_NAME" value="com.test.cloud_storage" />
+      <option name="MAIN_CLASS_NAME" value="com.test.cloud_storage.CloudStorageApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -627,6 +608,18 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="mq-core" />
+      <envs />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -634,7 +627,7 @@
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
     </configuration>
-    <configuration name="CloudStorageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="CloudStorageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.test.cloud_storage.*" />
@@ -644,12 +637,6 @@
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.test.mqserver.CloudStorageApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <module name="mq-server" />
-      <envs />
-    </configuration>
-    <configuration name="MqServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.test.mqservice.MqServiceApplication" />
-      <module name="mq-service" />
       <envs />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -686,15 +673,16 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Spring Boot.MqServiceApplication" />
-      <item index="1" class="java.lang.String" itemvalue="Spring Boot.CloudStorageApplication" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.FileSliceCacheTest.putFileSliceInfo" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.FileSliceCacheTest.getFileSliceInfo" />
+      <item index="0" class="java.lang.String" itemvalue="Spring Boot.CloudStorageApplication" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.CloudStorageApplicationTests.contextLoads" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CloudStorageApplicationTests" />
+      <item index="3" class="java.lang.String" itemvalue="Application.test" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.FileSliceCacheTest.putFileSliceInfo" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.FileSliceCacheTest.getFileSliceInfo" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Application.test" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CloudStorageApplicationTests.contextLoads" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.CloudStorageApplicationTests" />
       </list>
     </recent_temporary>
   </component>
@@ -724,7 +712,14 @@
       <workItem from="1534987637804" duration="19595000" />
       <workItem from="1535012776047" duration="11191000" />
       <workItem from="1535072128082" duration="28247000" />
-      <workItem from="1535106343980" duration="56000" />
+      <workItem from="1535106343980" duration="698000" />
+      <workItem from="1535334613004" duration="5037000" />
+      <workItem from="1535340162445" duration="4787000" />
+      <workItem from="1535427394873" duration="316000" />
+      <workItem from="1535525927623" duration="623000" />
+      <workItem from="1535687040925" duration="15636000" />
+      <workItem from="1535944018932" duration="4338000" />
+      <workItem from="1536022328376" duration="247000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1534849187368</created>
@@ -740,80 +735,98 @@
       <option name="project" value="LOCAL" />
       <updated>1535094419039</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="添加文件上传数据库更新">
+      <created>1535106447168</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1535106447168</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FileSliceCacheTest_getFileSliceInfo - 2018.08.24 at 09h 07m 59s.xml">
-      <configuration name="FileSliceCacheTest.getFileSliceInfo" configurationId="JUnit" />
+    <history-entry file="CloudStorageApplicationTests - 2018.08.27 at 10h 07m 12s.xml">
+      <configuration name="CloudStorageApplicationTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileSliceCacheTest_getFileSliceInfo - 2018.08.24 at 09h 13m 02s.xml">
-      <configuration name="FileSliceCacheTest.getFileSliceInfo" configurationId="JUnit" />
+    <history-entry file="CloudStorageApplicationTests - 2018.08.27 at 10h 07m 26s.xml">
+      <configuration name="CloudStorageApplicationTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileSliceCacheTest_getFileSliceInfo - 2018.08.24 at 09h 13m 25s.xml">
-      <configuration name="FileSliceCacheTest.getFileSliceInfo" configurationId="JUnit" />
+    <history-entry file="CloudStorageApplicationTests - 2018.08.27 at 10h 09m 42s.xml">
+      <configuration name="CloudStorageApplicationTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileSliceCacheTest_getFileSliceInfo - 2018.08.24 at 12h 54m 00s.xml">
-      <configuration name="FileSliceCacheTest.getFileSliceInfo" configurationId="JUnit" />
+    <history-entry file="CloudStorageApplicationTests_contextLoads - 2018.08.27 at 10h 17m 19s.xml">
+      <configuration name="CloudStorageApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileSliceCacheTest_getFileSliceInfo - 2018.08.24 at 13h 04m 19s.xml">
-      <configuration name="FileSliceCacheTest.getFileSliceInfo" configurationId="JUnit" />
+    <history-entry file="CloudStorageApplicationTests_contextLoads - 2018.08.27 at 10h 17m 41s.xml">
+      <configuration name="CloudStorageApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileSliceCacheTest_getFileSliceInfo - 2018.08.24 at 13h 04m 57s.xml">
-      <configuration name="FileSliceCacheTest.getFileSliceInfo" configurationId="JUnit" />
+    <history-entry file="CloudStorageApplicationTests_contextLoads - 2018.08.27 at 10h 18m 05s.xml">
+      <configuration name="CloudStorageApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileSliceCacheTest_getFileSliceInfo - 2018.08.24 at 13h 39m 44s.xml">
-      <configuration name="FileSliceCacheTest.getFileSliceInfo" configurationId="JUnit" />
+    <history-entry file="CloudStorageApplicationTests_contextLoads - 2018.08.27 at 10h 18m 28s.xml">
+      <configuration name="CloudStorageApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileSliceCacheTest_putFileSliceInfo - 2018.08.24 at 09h 07m 29s.xml">
-      <configuration name="FileSliceCacheTest.putFileSliceInfo" configurationId="JUnit" />
+    <history-entry file="CloudStorageApplicationTests_contextLoads - 2018.08.27 at 10h 19m 03s.xml">
+      <configuration name="CloudStorageApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileSliceCacheTest_putFileSliceInfo - 2018.08.24 at 09h 13m 14s.xml">
-      <configuration name="FileSliceCacheTest.putFileSliceInfo" configurationId="JUnit" />
+    <history-entry file="CloudStorageApplicationTests_contextLoads - 2018.08.27 at 10h 19m 25s.xml">
+      <configuration name="CloudStorageApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileSliceCacheTest_putFileSliceInfo - 2018.08.24 at 13h 40m 44s.xml">
-      <configuration name="FileSliceCacheTest.putFileSliceInfo" configurationId="JUnit" />
+    <history-entry file="CloudStorageApplicationTests_contextLoads - 2018.08.27 at 10h 19m 40s.xml">
+      <configuration name="CloudStorageApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174418000" />
+    <option name="totallyTimeSpent" value="206044000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18070363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14605543" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11567164" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20095949" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934713" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11751904" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28411514" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30359086" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3242655" sideWeight="0.4978678" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3619403" sideWeight="0.3264418" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36567163" sideWeight="0.67355824" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hibernate Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20565833" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20565833" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -860,374 +873,354 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="添加断点上传" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加断点上传" />
+    <MESSAGE value="添加文件上传数据库更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加文件上传数据库更新" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://table:/95c0574f/3f7e9001-0f35-486a-9f19-85b1f0da3327/test.indexinfos" />
-    <entry file="das://table:/95c0574f/3f7e9001-0f35-486a-9f19-85b1f0da3327/test.fileinfos" />
-    <entry file="file://$PROJECT_DIR$/../feigntest1/feignclient/src/main/java/com/test/feign/client/FeignService.java" />
-    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/service/ShowService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="39" column="41" lean-forward="false" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/amqp/spring-amqp/2.0.5.RELEASE/spring-amqp-2.0.5.RELEASE-sources.jar!/org/springframework/amqp/core/AmqpTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="35" column="3" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-server/src/main/resources/public/Test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3115">
-          <caret line="123" column="51" lean-forward="false" selection-start-line="123" selection-start-column="51" selection-end-line="123" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar!/org/slf4j/Logger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="229" column="16" lean-forward="false" selection-start-line="229" selection-start-column="16" selection-end-line="229" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/log/cloud_storage.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="456">
-          <caret line="49" column="28" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-server/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/repository/FileRepos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/repository/IndexRepos.java">
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/IndexRepos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/io/File.java">
+    <entry file="file://$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/repository/UserRepos.java" />
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/UserRepos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30720">
-          <caret line="1024" column="62" lean-forward="false" selection-start-line="1024" selection-start-column="62" selection-end-line="1024" selection-end-column="62" />
+        <state relative-caret-position="150">
+          <caret line="7" column="46" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/c59758d5/3f7e9001-0f35-486a-9f19-85b1f0da3327/test.indexinfos">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/sun/nio/cs/StreamDecoder.class">
+    <entry file="file://$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/service/FileService.java" />
+    <entry file="file://$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/MqServiceApplication.java" />
+    <entry file="file://$PROJECT_DIR$/mq-service/src/test/java/com/test/mqservice/cache/FileSliceCacheTest.java" />
+    <entry file="file://$PROJECT_DIR$/mq-service/src/main/resources/application.yml" />
+    <entry file="file://$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/util/FileUtil.java" />
+    <entry file="file://$PROJECT_DIR$/mq-core/src/main/resources/application.properties" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.32/tomcat-embed-core-8.5.32.jar!/org/apache/tomcat/jni/FileInfo.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="74" column="15" lean-forward="false" selection-start-line="74" selection-start-column="15" selection-end-line="74" selection-end-column="15" />
+        <state relative-caret-position="623">
+          <caret line="26" column="11" lean-forward="false" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/c59758d5/3f7e9001-0f35-486a-9f19-85b1f0da3327/test.fileinfos">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/io/InputStreamReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="161" column="24" lean-forward="true" selection-start-line="161" selection-start-column="24" selection-end-line="161" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/nio/CharBuffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="261" column="22" lean-forward="false" selection-start-line="261" selection-start-column="22" selection-end-line="261" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/io/BufferedReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1462">
-          <caret line="176" column="15" lean-forward="false" selection-start-line="176" selection-start-column="15" selection-end-line="176" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/nio/ByteBuffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2379">
-          <caret line="498" column="28" lean-forward="false" selection-start-line="498" selection-start-column="28" selection-end-line="498" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-core/src/test/java/com/test/mqcore/test.java" />
-    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/FileSliceRepos.java" />
     <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/repository/FileRepos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="103" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/io/RandomAccessFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="120" column="11" lean-forward="false" selection-start-line="120" selection-start-column="11" selection-end-line="120" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-server/src/main/resources/public/layui/lay/modules/upload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="3507" lean-forward="false" selection-start-line="1" selection-start-column="3507" selection-end-line="1" selection-end-column="3507" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/CloudStorageApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding>
-            <element signature="e#673#674#0" expanded="false" />
-            <element signature="e#738#739#0" expanded="false" />
-          </folding>
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.8.RELEASE/spring-web-5.0.8.RELEASE.jar!/org/springframework/web/bind/annotation/RequestMapping.class">
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/bo/BaseResp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        <state relative-caret-position="150">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.8.RELEASE/spring-web-5.0.8.RELEASE.jar!/org/springframework/web/bind/annotation/RestController.class">
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/bo/FileBo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        <state relative-caret-position="720">
+          <caret line="24" column="28" lean-forward="false" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.8.RELEASE/spring-web-5.0.8.RELEASE.jar!/org/springframework/web/bind/annotation/ResponseBody.class">
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/bo/FileResp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        <state relative-caret-position="150">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mq-server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="32" column="8" lean-forward="false" selection-start-line="32" selection-start-column="8" selection-end-line="35" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/MqServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#428#429#0" expanded="false" />
-            <element signature="e#490#491#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/5.0.8.RELEASE/spring-test-5.0.8.RELEASE.jar!/org/springframework/test/context/junit4/SpringJUnit4ClassRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-service/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/config/CacheConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="83" column="34" lean-forward="false" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/FileSliceBo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="25" column="72" lean-forward="false" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-service/src/test/java/com/test/mqservice/cache/FileSliceCacheTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/cache/FileSliceCache.java">
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/bo/FileSliceInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/service/FileService.java">
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/bo/FileSliceBo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="22" column="24" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        <state relative-caret-position="60">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/receiver/FileReceiver.java">
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/cache/FileSliceCache.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/config/SpringContextProvider.java">
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/config/CacheConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="300">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/sender/FileSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/config/PathConfig.java">
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/config/ErrorCode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/FileSliceInfo.java">
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/config/PathConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="25" column="14" lean-forward="false" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+        <state relative-caret-position="270">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/service/FileService.java">
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/config/RabbitConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/config/SpringContextProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
-          <caret line="53" column="20" lean-forward="true" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/bo/FileBo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31">
-          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-core/src/main/java/com/test/mqcore/util/FileUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-service/src/main/java/com/test/mqservice/util/FileUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="75" column="36" lean-forward="true" selection-start-line="75" selection-start-column="36" selection-end-line="75" selection-end-column="36" />
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/config/WebSocketConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/DownloadController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/ShowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="28" column="54" lean-forward="true" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/entity/FileInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/entity/IndexInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/entity/UserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/exception/CustomException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/receiver/FileReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/sender/FileSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/service/FileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/service/MessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/service/ShowService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="23" column="40" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/util/FileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/util/PdfUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/resources/templates/Test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1980">
+          <caret line="183" column="0" lean-forward="false" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/io/PrintStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="819" column="16" lean-forward="false" selection-start-line="819" selection-start-column="16" selection-end-line="819" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/function/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="48" column="21" lean-forward="false" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35430">
+          <caret line="1247" column="34" lean-forward="false" selection-start-line="1247" selection-start-column="34" selection-end-line="1247" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/test/java/com/test/cloud_storage/test1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/test/java/com/test/cloud_storage/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" column="44" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1786">
+          <caret line="78" column="24" lean-forward="false" selection-start-line="78" selection-start-column="27" selection-end-line="82" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/FileController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="method#handShake#0;class#FileController#0" expanded="false" />
-            <element signature="method#uploadSliceFile#0;class#FileController#0" expanded="false" />
-            <element signature="method#uploadFile#0;class#FileController#0" expanded="false" />
-            <element signature="method#createFolder#0;class#FileController#0" expanded="false" />
-            <element signature="method#deleteFile#0;class#FileController#0" expanded="false" />
-            <element signature="method#deleteFolder#0;class#FileController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mq-server/src/main/resources/static/js/fileJs/uploadShow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="6" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="47" selection-end-column="2" />
+        <state relative-caret-position="390">
+          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mq-server/src/main/resources/templates/Test.html">
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/CloudStorageApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="191" column="49" lean-forward="false" selection-start-line="191" selection-start-column="49" selection-end-line="191" selection-end-column="49" />
+        <state relative-caret-position="210">
+          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="12" />
           <folding>
-            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#1856#5473#0" expanded="false" />
-            <element signature="e#1979#2568#0" expanded="false" />
-            <element signature="e#2596#3196#0" expanded="false" />
-            <element signature="e#3249#4477#0" expanded="false" />
-            <element signature="e#4528#5453#0" expanded="false" />
-            <element signature="e#5493#5527#0" expanded="false" />
-            <element signature="e#8378#8631#0" expanded="false" />
-            <element signature="e#8666#8818#0" expanded="false" />
-            <element signature="e#8851#10067#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/controller/TestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Persistence/JavaeeElement:/c59758d5/Entities/cloud_storage/jpa/JPA/PersistenceModel">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Persistence</ID>
+          <OriginalElement>JavaeeElement:/c59758d5/Entities/cloud_storage/jpa/JPA/PersistenceModel</OriginalElement>
+          <nodes>
+            <node x="" y="">AbstractAuditable#jar://C:/Users/Administrator/.m2/repository/org/springframework/data/spring-data-jpa/2.0.8.RELEASE/spring-data-jpa-2.0.8.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractAuditable.class</node>
+            <node x="" y="">AbstractPersistable#jar://C:/Users/Administrator/.m2/repository/org/springframework/data/spring-data-jpa/2.0.8.RELEASE/spring-data-jpa-2.0.8.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractPersistable.class</node>
+            <node x="" y="">null#null</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="110.0" y="90.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Embeddables</Category>
+            <Category>Properties</Category>
+            <Category>Superclasses</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/c59758d5/3f7e9001-0f35-486a-9f19-85b1f0da3327/test.chatinfos">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/test/ChatinfosEntity.java" />
+    <entry file="file://$PROJECT_DIR$/mq-server/src/main/java/com/test/mqserver/test/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1235,9 +1228,80 @@
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>JPA|mq-server</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

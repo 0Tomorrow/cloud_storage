@@ -1,10 +1,10 @@
 server:
   port: 8002
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8000/eureka/
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8000/eureka/
 
 spring:
   rabbitmq:
@@ -17,6 +17,18 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    database: 0
+    host: 192.168.0.58
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    timeout: 2000ms
   jpa:
     properties:
       hibernate:
@@ -27,5 +39,7 @@ spring:
   application:
       name: cloudStorage-service
 logging:
-  path: E:\log
-  file: E:\log\cloud_storage.log
+  level:
+    root: info
+#  path: E:\log
+#  file: E:\log\cloud_storage.log

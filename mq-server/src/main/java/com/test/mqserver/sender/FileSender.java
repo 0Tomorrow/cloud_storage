@@ -1,12 +1,11 @@
 package com.test.mqserver.sender;
 
-import com.test.mqcore.bo.FileBo;
-import com.test.mqcore.bo.FileSliceBo;
+import com.test.mqserver.bo.FileBo;
+import com.test.mqserver.bo.FileSliceBo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
 
 @Component
 @Slf4j

@@ -1,8 +1,8 @@
 package com.test.mqserver.controller;
 
-import com.test.mqcore.bo.BaseResp;
-import com.test.mqcore.bo.FileResp;
-import com.test.mqcore.bo.FileSliceInfo;
+import com.test.mqserver.bo.BaseResp;
+import com.test.mqserver.bo.FileResp;
+import com.test.mqserver.bo.FileSliceInfo;
 import com.test.mqserver.service.FileService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,21 +30,21 @@ public class FileController {
 
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST, consumes = {"application/x-www-form-urlencoded;charset=UTF-8"})
     public BaseResp uploadFile(MultipartFile file, Long account, String relativePath) {
-        log.debug("uploadFile account is : {} and relativePath is : {}", account, relativePath);
+        log.info("uploadFile account is : {} and relativePath is : {}", account, relativePath);
         fileService.uploadFile(file, account, relativePath);
         return new BaseResp<FileResp>(null);
     }
 
     @RequestMapping(value = "/createFolder")
     public BaseResp createFolder(Long account, String relativePath) {
-        log.debug("createFolder account is : {} and relativePath is : {}", account, relativePath);
+        log.info("createFolder account is : {} and relativePath is : {}", account, relativePath);
         fileService.updataFolder(account, relativePath);
         return new BaseResp<FileResp>(null);
     }
 
     @RequestMapping(value = "/deleteFile")
     public BaseResp deleteFile(String fileName, Long account, String relativePath) {
-        log.debug("deleteFile fileName is : {} and account is : {} and relativePath is : {}", fileName, account, relativePath);
+        log.info("deleteFile fileName is : {} and account is : {} and relativePath is : {}", fileName, account, relativePath);
         fileService.deleteFile(fileName, account, relativePath);
         return new BaseResp<FileResp>(null);
     }
@@ -55,7 +55,7 @@ public class FileController {
             relativePath = relativePath + "/";
         }
         relativePath = relativePath + folderName;
-        log.debug("deleteFile account is : {} and relativePath is : {}", account, relativePath);
+        log.info("deleteFile account is : {} and relativePath is : {}", account, relativePath);
         fileService.deleteFolder(account, relativePath);
         return new BaseResp<FileResp>(null);
     }

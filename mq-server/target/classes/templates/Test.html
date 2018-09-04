@@ -20,6 +20,30 @@
 
 <table id="folder" lay-filter="folder"></table>
 <table id="file" lay-filter="file"></table>
+<table class="layui-table">
+    <colgroup>
+        <col width="200">
+        <col width="300">
+        <col>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>上传文件名</th>
+        <th>进度</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id = "uploadShow">
+    <!--<tr>-->
+        <!--<td>许闲心</td>-->
+        <!--<td>-->
+            <!--<div class="layui-progress layui-progress-big" lay-showPercent="yes">-->
+                <!--<div class="layui-progress-bar layui-bg-green" lay-percent="50%"></div>-->
+            <!--</div>-->
+        <!--</td>-->
+    <!--</tr>-->
+    </tbody>
+</table>
 
 <script type="text/html" id="barDemo">
     <!--<a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>-->
@@ -147,6 +171,7 @@
     //     });
     // });
 
+
     document.querySelector('input').onchange = function() {
         var sliceSize = 1024 * 1024;
         var timestamp = (new Date()).getTime();
@@ -161,7 +186,7 @@
             type : "post",
             url : "http://localhost:8002/handShake",
             data : {"idCode" : idCode, "fileSize" : fileSize, "count" : count,
-            "sliceSize" : sliceSize, "fileName" : fileName, "account" : account, "relativePath" : relativePath},
+                "sliceSize" : sliceSize, "fileName" : fileName, "account" : account, "relativePath" : relativePath},
             contentType : "application/x-www-form-urlencoded",
             success : function () {
                 for (var i = 0; i < count; i++) {
@@ -171,7 +196,7 @@
                         end = fileSize;
                     }
                     var sliceFile = file.slice(start, end);
-                    console.log(sliceFile)
+                    console.log(sliceFile);
                     var form_data = new FormData();
                     form_data.append("index", i);
                     form_data.append("idCode", idCode);
@@ -191,8 +216,6 @@
         });
     };
 
-
-
     function pageUp() {
         if (relativePath === "") {
             $("#pageUp").attr("class","layui-btn layui-btn-disabled").attr("onclick","");
@@ -201,44 +224,44 @@
         }
     }
     pageUp();
-</script>
-<script>
-function back() {
-    var index = relativePath.lastIndexOf("/");
-    relativePath = relativePath.substring(0, index);
-    addData();
-    pageUp();
-}
-function createFolderForm() {
-    layui.use('layer', function(){
-        var layer = layui.layer;
-        layer.open({
-            type: 1,
-            area: '500px'
-            ,btn: ['提交']
-            ,closeBtn: 2
-            ,yes: function(index, layero){
-                var folderName = $("#folderName").val();
-                if (folderName === "" || folderName === null) {
-                    return;
-                }
-                $.get("http://localhost:8002/createFolder", {
-                    "account" : account,
-                    "relativePath" : function () {
-                        if (relativePath !== "") {
-                            folderName = relativePath + "/" +  folderName;
-                        }
-                        return folderName;
+    function back() {
+        var index = relativePath.lastIndexOf("/");
+        relativePath = relativePath.substring(0, index);
+        addData();
+        pageUp();
+    }
+    function createFolderForm() {
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            layer.open({
+                type: 1,
+                area: '500px'
+                ,btn: ['提交']
+                ,closeBtn: 2
+                ,yes: function(index, layero){
+                    var folderName = $("#folderName").val();
+                    if (folderName === "" || folderName === null) {
+                        return;
                     }
-                }, function () {
-                    addData();
-                    layer.close(index);
-                })
-            }
-            ,content: '<input type="text" id = "folderName" name="folderName" required lay-verify="required" placeholder="请输入文件夹名称" autocomplete="off" class="layui-input">'
+                    $.get("http://localhost:8002/createFolder", {
+                        "account" : account,
+                        "relativePath" : function () {
+                            if (relativePath !== "") {
+                                folderName = relativePath + "/" +  folderName;
+                            }
+                            return folderName;
+                        }
+                    }, function () {
+                        addData();
+                        layer.close(index);
+                    })
+                }
+                ,content: '<input type="text" id = "folderName" name="folderName" required lay-verify="required" placeholder="请输入文件夹名称" autocomplete="off" class="layui-input">'
+            });
         });
-    });
-}
+    }
+
+
 </script>
 </body>
 </html>

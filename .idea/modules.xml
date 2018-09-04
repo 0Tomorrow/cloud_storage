@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/cloud_storage.iml" filepath="$PROJECT_DIR$/cloud_storage.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mq-core/mq-core.iml" filepath="$PROJECT_DIR$/mq-core/mq-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/mq-server/mq-server.iml" filepath="$PROJECT_DIR$/mq-server/mq-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mq-service/mq-service.iml" filepath="$PROJECT_DIR$/mq-service/mq-service.iml" />
     </modules>
   </component>
 </project>

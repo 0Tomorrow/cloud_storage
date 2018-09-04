@@ -1,9 +1,9 @@
 package com.test.mqserver.controller;
 
 import com.test.mqserver.service.ShowService;
-import com.test.mqcore.bo.BaseResp;
-import com.test.mqcore.entity.FileInfo;
-import com.test.mqcore.entity.IndexInfo;
+import com.test.mqserver.bo.BaseResp;
+import com.test.mqserver.entity.FileInfo;
+import com.test.mqserver.entity.IndexInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

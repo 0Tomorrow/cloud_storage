@@ -4,8 +4,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/mq-service/pom.xml" />
-        <option value="$PROJECT_DIR$/mq-core/pom.xml" />
         <option value="$PROJECT_DIR$/mq-server/pom.xml" />
       </list>
     </option>

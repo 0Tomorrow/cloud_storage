@@ -7,9 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cloud_storage" />
-        <module name="mq-core" />
         <module name="mq-server" />
-        <module name="mq-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

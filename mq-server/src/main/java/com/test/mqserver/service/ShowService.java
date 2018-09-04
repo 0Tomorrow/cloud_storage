@@ -2,11 +2,11 @@ package com.test.mqserver.service;
 
 import com.test.mqserver.repository.FileRepos;
 import com.test.mqserver.repository.IndexRepos;
-import com.test.mqcore.config.ErrorCode;
-import com.test.mqcore.config.PathConfig;
-import com.test.mqcore.config.SpringContextProvider;
-import com.test.mqcore.entity.FileInfo;
-import com.test.mqcore.entity.IndexInfo;
+import com.test.mqserver.config.ErrorCode;
+import com.test.mqserver.config.PathConfig;
+import com.test.mqserver.config.SpringContextProvider;
+import com.test.mqserver.entity.FileInfo;
+import com.test.mqserver.entity.IndexInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
