@@ -7,11 +7,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.nio.ByteBuffer;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class FileUtil {
-    public static byte[] fileToStringBuffer(MultipartFile file, Long byteSize) throws Exception {
+    public static byte[] fileToByteBuffer(MultipartFile file, Long byteSize) throws Exception {
         InputStream fip = file.getInputStream();
         byte[] data = new byte[1024];
         ByteBuffer buffer = ByteBuffer.allocate(Integer.parseInt(byteSize + ""));
@@ -46,7 +44,7 @@ public class FileUtil {
         }
     }
 
-    public static void uploadFinish(FileSliceInfo fileSliceInfo) {
+    private static void uploadFinish(FileSliceInfo fileSliceInfo) {
         if (!fileSliceInfo.isFinish()) {
             return;
         }
@@ -72,7 +70,7 @@ public class FileUtil {
         return fileSliceInfo;
     }
 
-    public static void insert(byte[] file, long pos, String path) {
+    private static void insert(byte[] file, long pos, String path) {
         File tempFile = new File(path);
         try (RandomAccessFile raf = new RandomAccessFile(tempFile, "rw")) {
             File temp = new File(path + ".tmp");
@@ -80,8 +78,8 @@ public class FileUtil {
             FileOutputStream fileOutputStream = new FileOutputStream(temp);
             raf.seek(pos);
             byte[] buff = new byte[64];
-            int hasRead = 0;
-            while((hasRead = raf.read(buff)) > 0){
+            int hasRead;
+            while(raf.read(buff) > 0){
                 fileOutputStream.write(buff);
             }
             raf.seek(pos);
@@ -98,82 +96,41 @@ public class FileUtil {
         }
     }
 
-    public static String uploadFile(byte[] file, String filePath, String fileName) {
-        String fileType = fileName.substring(fileName.lastIndexOf("."));
-        fileName = fileName.substring(0, fileName.lastIndexOf("."));
-        while (new File(filePath + "/" + fileName + fileType).exists()) {
-            String regex = "^(.*)\\((\\d+)\\)$";
-            Pattern p = Pattern.compile(regex);
-            Matcher m = p.matcher(fileName); // 获取 matcher 对象
-            if (!m.find()) {
-                fileName = fileName + "(1)";
-                continue;
-            }
-            int index = Integer.parseInt(m.group(2)) + 1;
-            fileName = m.group(1) + "(" + index + ")";
-        }
-        String path = filePath + "/" + fileName + fileType;
-        saveFile(file, path);
-        return fileName + fileType;
-    }
-
-    public static void saveFile(byte[] file, String path) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    File streamFile = new File(path);
-                    FileOutputStream fop = new FileOutputStream(streamFile);
-//                    OutputStreamWriter writer = new OutputStreamWriter(fop, "UTF-8");
-                    fop.write(file);
-//                    writer.close();
-                    fop.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
-
     public static void deleteFile(String filePath) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    File file = new File(filePath);
-                    if (!file.exists()) {
-                        throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
-                    }
-                    if (!file.delete()) {
-                        throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+        new Thread(() -> {
+            try {
+                File file = new File(filePath);
+                if (!file.exists()) {
+                    throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
                 }
+                if (!file.isFile()) {
+                    throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
+                }
+                if (!file.delete()) {
+                    throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }).start();
     }
 
     public static void deleteFolder(String folderPath) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    File file = new File(folderPath);
-                    if (!file.exists()) {
-                        throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
-                    }
-                    if (!file.isDirectory()) {
-                        throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
-                    }
-                    if (!file.delete()) {
-                        throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+        new Thread(() -> {
+            try {
+                File file = new File(folderPath);
+                if (!file.exists()) {
+                    throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
                 }
+                if (!file.isDirectory()) {
+                    throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
+                }
+                if (!file.delete()) {
+                    throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }).start();
     }
-
 }

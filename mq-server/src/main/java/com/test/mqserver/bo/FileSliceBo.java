@@ -23,7 +23,7 @@ public class FileSliceBo implements Serializable {
 
     public FileSliceBo(MultipartFile file, int index, String idCode) {
         try {
-            this.file = FileUtil.fileToStringBuffer(file, file.getSize());
+            this.file = FileUtil.fileToByteBuffer(file, file.getSize());
         } catch (Exception e) {
             e.printStackTrace();
         }

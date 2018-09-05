@@ -1,5 +1,6 @@
 package com.test.mqserver.service;
 
+import com.test.mqserver.entity.UserInfo;
 import com.test.mqserver.repository.FileRepos;
 import com.test.mqserver.repository.IndexRepos;
 import com.test.mqserver.config.ErrorCode;
@@ -7,6 +8,7 @@ import com.test.mqserver.config.PathConfig;
 import com.test.mqserver.config.SpringContextProvider;
 import com.test.mqserver.entity.FileInfo;
 import com.test.mqserver.entity.IndexInfo;
+import com.test.mqserver.repository.UserRepos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,25 +22,26 @@ public class ShowService {
     @Autowired
     IndexRepos indexRepos;
 
+    @Autowired
+    UserRepos userRepos;
+
+    @Autowired
+    FolderService folderService;
+
+    @Autowired
+    PathConfig pathConfig;
+
     public List<IndexInfo> showFolder(Long account, String relativePath) {
-        String filePath = PathConfig.getPath(account, relativePath);
+        String filePath = pathConfig.getPath(account, relativePath);
         IndexInfo indexInfo = indexRepos.findByIndexPath(filePath);
-        if (indexInfo == null) {
-            throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
-        }
         int indexId = indexInfo.getIndexId();
-        List<IndexInfo> indexList = indexRepos.findAllByPrevId(indexId);
-        return indexList;
+        return indexRepos.findAllByPrevId(indexId);
     }
 
     public List<FileInfo> showFile(Long account, String relativePath) {
-        String filePath = PathConfig.getPath(account, relativePath);
+        String filePath = pathConfig.getPath(account, relativePath);
         IndexInfo indexInfo = indexRepos.findByIndexPath(filePath);
-        if (indexInfo == null) {
-            throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
-        }
         int indexId = indexInfo.getIndexId();
-        List<FileInfo> fileList = fileRepos.findAllByIndexId(indexId);
-        return fileList;
+        return fileRepos.findAllByIndexId(indexId);
     }
 }

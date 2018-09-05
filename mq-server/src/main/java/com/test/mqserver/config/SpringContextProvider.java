@@ -1,7 +1,7 @@
 package com.test.mqserver.config;
 
 import com.test.mqserver.exception.CustomException;
-import com.test.mqserver.service.MessageService;
+import com.test.mqserver.service.message.MessageService;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

@@ -1,4 +1,4 @@
-package com.test.mqserver.sender;
+package com.test.mqserver.mq;
 
 import com.test.mqserver.bo.FileBo;
 import com.test.mqserver.bo.FileSliceBo;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class FileSender {
+public class Sender {
     @Autowired
     private AmqpTemplate rabbitTemplate;
 
@@ -19,16 +19,6 @@ public class FileSender {
 
     public void uploadSliceFile(FileSliceBo fileSliceBo) {
         this.rabbitTemplate.convertAndSend("uploadSliceFile", fileSliceBo);
-    }
-
-    public void uploadFile(FileBo fileBo) {
-        log.debug("uploadFile fileBo : {}", fileBo);
-        this.rabbitTemplate.convertAndSend("uploadFile", fileBo);
-    }
-
-    public void updataFolder(FileBo fileBo) {
-        log.debug("updataFolder fileBo : {}", fileBo);
-        this.rabbitTemplate.convertAndSend("createFolder", fileBo);
     }
 
     public void deleteFile(FileBo fileBo) {

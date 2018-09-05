@@ -1,6 +1,5 @@
 package com.test.mqserver.bo;
 
-import com.test.mqserver.config.PathConfig;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -23,6 +22,10 @@ public class FileSliceInfo implements Serializable {
 
     private int[] indexList;
 
+    private String tempPath;
+
+    private String filePath;
+
     public int addFileIndex(int index) {
         if (indexList == null) {
             indexList = new int[count];
@@ -37,14 +40,6 @@ public class FileSliceInfo implements Serializable {
             }
         }
         return temp;
-    }
-
-    public String getTempPath() {
-        return PathConfig.getPath(this.account, this.relativePath) + "/" + idCode + ".tmp";
-    }
-
-    public String getFilePath() {
-        return PathConfig.getPath(this.account, this.relativePath) + "/" + fileName;
     }
 
     public Boolean isFinish() {

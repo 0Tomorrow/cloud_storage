@@ -14,6 +14,10 @@ public class FileInfo {
     private String fileName;
     private int indexId;
     private Long userAccount;
+    private Long time;
+    private Long size;
+    private String type;
+    private int page;
 
     public FileInfo() {
 

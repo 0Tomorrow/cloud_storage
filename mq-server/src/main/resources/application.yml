@@ -41,5 +41,6 @@ spring:
 logging:
   level:
     root: info
-#  path: E:\log
-#  file: E:\log\cloud_storage.log
+
+file:
+  path: "E://test/"

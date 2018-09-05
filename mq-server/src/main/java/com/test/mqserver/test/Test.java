@@ -1,14 +1,16 @@
 package com.test.mqserver.test;
 
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Test {
-    @Async
-    public synchronized void test() {
-        for (int i = 0; i < 200; i++) {
-            System.out.println(i);
-        }
+    public static void main(String[] args) {
+//        TestEnum testEnum = TestEnum.getByUrl("http://delicloud.cn/barcode?type=user&user_id=12345");
+//        System.out.println(testEnum);
+
+        String clazz = Thread.currentThread() .getStackTrace()[1].getClassName();
+        String method = Thread.currentThread() .getStackTrace()[1].getMethodName();
+        System.out.println(clazz);
+        System.out.println(method);
     }
 }

@@ -1,4 +1,4 @@
-package com.test.mqserver.service;
+package com.test.mqserver.service.message;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

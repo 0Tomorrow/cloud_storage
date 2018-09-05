@@ -1,4 +1,4 @@
-package com.test.mqserver.receiver;
+package com.test.mqserver.mq;
 
 import com.test.mqserver.bo.FileBo;
 import com.test.mqserver.bo.FileSliceBo;
@@ -6,6 +6,7 @@ import com.test.mqserver.bo.FileSliceInfo;
 import com.test.mqserver.cache.FileSliceCache;
 import com.test.mqserver.config.PathConfig;
 import com.test.mqserver.service.FileService;
+import com.test.mqserver.service.FolderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,19 +14,25 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class FileReceiver {
+public class Receiver {
     @Autowired
     FileService fileService;
 
     @Autowired
+    FolderService folderService;
+
+    @Autowired
     FileSliceCache fileSliceCache;
+
+    @Autowired
+    PathConfig pathConfig;
 
     @RabbitHandler
     @RabbitListener(queuesToDeclare = @Queue("handShake"))
     public void handShake(FileSliceBo fileSliceBo) {
         FileSliceInfo fileSliceInfo = fileSliceBo.getFileSliceInfo();
         fileSliceCache.putFileSliceInfo(fileSliceInfo.getIdCode(), fileSliceInfo);
-        fileService.creatTempFile(fileSliceInfo);
+        fileService.createTempFile(fileSliceInfo);
     }
 
     @RabbitHandler
@@ -40,33 +47,13 @@ public class FileReceiver {
     }
 
     @RabbitHandler
-    @RabbitListener(queuesToDeclare = @Queue("uploadFile"))
-    public void uploadFile(FileBo fileBo) {
-        String fileName = fileBo.getFileName();
-        byte[] file = fileBo.getFile();
-        Long account = fileBo.getAccount();
-        String relativePath = fileBo.getRelativePath();
-        log.debug("uploadFile fileBo : {}", fileBo);
-        fileService.uploadFile(file, fileName, account, relativePath);
-    }
-
-    @RabbitHandler
-    @RabbitListener(queuesToDeclare = @Queue("createFolder"))
-    public void createFolder(FileBo fileBo) {
-        Long account = fileBo.getAccount();
-        String relativePath = fileBo.getRelativePath();
-        log.debug("createFolder fileBo : {}", fileBo);
-        fileService.updataFolder(account, relativePath);
-    }
-
-    @RabbitHandler
     @RabbitListener(queuesToDeclare = @Queue("deleteFile"))
     public void deleteFile(FileBo fileBo) {
         String fileName = fileBo.getFileName();
         Long account = fileBo.getAccount();
         String relativePath = fileBo.getRelativePath();
         log.debug("deleteFile fileBo : {}", fileBo);
-        String path = PathConfig.getPath(account, relativePath);
+        String path = pathConfig.getPath(account, relativePath);
         fileService.deleteFile(fileName, path);
     }
 
@@ -76,7 +63,7 @@ public class FileReceiver {
         Long account = fileBo.getAccount();
         String relativePath = fileBo.getRelativePath();
         log.debug("deleteFolder fileBo : {}", fileBo);
-        String path = PathConfig.getPath(account, relativePath);
-        fileService.deleteFolder(path);
+        String path = pathConfig.getPath(account, relativePath);
+        folderService.deleteFolder(path);
     }
 }

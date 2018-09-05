@@ -19,14 +19,14 @@ public class ShowController {
     ShowService showService;
 
     @RequestMapping(value = "showFile")
-    public BaseResp showFile(Long account, String relativePath) {
-        List<FileInfo> fileList = showService.showFile(account, relativePath);
+    public BaseResp showFile(String folderName, Long account, String relativePath) {
+        List<FileInfo> fileList = showService.showFile(folderName, account, relativePath);
         return new BaseResp<List<FileInfo>>(fileList);
     }
 
     @RequestMapping(value = "showFolder")
-    public BaseResp showFolder(Long account, String relativePath) {
-        List<IndexInfo> indexList = showService.showFolder(account, relativePath);
+    public BaseResp showFolder(String folderName, Long account, String relativePath) {
+        List<IndexInfo> indexList = showService.showFolder(folderName, account, relativePath);
         return new BaseResp<List<IndexInfo>>(indexList);
     }
 }
