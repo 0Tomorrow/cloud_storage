@@ -19,7 +19,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   redis:
     database: 0
-    host: 192.168.0.58
+    host: localhost
     port: 6379
     password:
     jedis:
@@ -43,4 +43,4 @@ logging:
     root: info
 
 file:
-  path: "E://test/"
+  path: "E://cloud_storage/"

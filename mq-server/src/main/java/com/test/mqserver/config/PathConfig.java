@@ -11,12 +11,8 @@ public class PathConfig {
     private String path;
 
     public String getPath(Long account, String relativePath) {
-        String folderPath = path;
-        if (folderPath.charAt(path.length() - 1) != '/') {
-            folderPath = path + "/";
-        }
         if (relativePath == null || relativePath.equals("")) {
-            return folderPath + account;
+            return account + "/";
         }
         if (relativePath.charAt(0) != '/') {
             relativePath = "/" + relativePath;
@@ -24,6 +20,6 @@ public class PathConfig {
         if (relativePath.charAt(relativePath.length() - 1) != '/') {
             relativePath = relativePath + "/";
         }
-        return folderPath + account + relativePath;
+        return account + relativePath;
     }
 }

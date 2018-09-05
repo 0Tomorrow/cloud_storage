@@ -22,7 +22,7 @@ public class FolderController {
         }
         relativePath = relativePath + folderName;
         log.info("deleteFile account is : {} and relativePath is : {}", account, relativePath);
-        folderService.deleteFolder(account, relativePath);
+        folderService.mqDeleteFolder(account, relativePath);
         return new BaseResp<FileResp>(null);
     }
 

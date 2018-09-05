@@ -251,10 +251,9 @@
                             }
                             return folderName;
                         }
-                    }, function () {
-                        addData();
-                        layer.close(index);
-                    })
+                    });
+                    layer.close(index);
+                    addData();
                 }
                 ,content: '<input type="text" id = "folderName" name="folderName" required lay-verify="required" placeholder="请输入文件夹名称" autocomplete="off" class="layui-input">'
             });

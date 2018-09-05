@@ -32,15 +32,15 @@ public class ShowService {
     PathConfig pathConfig;
 
     public List<IndexInfo> showFolder(Long account, String relativePath) {
-        String filePath = pathConfig.getPath(account, relativePath);
-        IndexInfo indexInfo = indexRepos.findByIndexPath(filePath);
+        String path = pathConfig.getPath(account, relativePath);
+        IndexInfo indexInfo = indexRepos.findByIndexPath(path);
         int indexId = indexInfo.getIndexId();
         return indexRepos.findAllByPrevId(indexId);
     }
 
     public List<FileInfo> showFile(Long account, String relativePath) {
-        String filePath = pathConfig.getPath(account, relativePath);
-        IndexInfo indexInfo = indexRepos.findByIndexPath(filePath);
+        String path = pathConfig.getPath(account, relativePath);
+        IndexInfo indexInfo = indexRepos.findByIndexPath(path);
         int indexId = indexInfo.getIndexId();
         return fileRepos.findAllByIndexId(indexId);
     }

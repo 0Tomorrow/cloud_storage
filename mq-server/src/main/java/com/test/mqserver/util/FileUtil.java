@@ -29,9 +29,9 @@ public class FileUtil {
         String tempPath = fileSliceInfo.getTempPath();
         File file = new File(tempPath);
         File temp = new File(tempPath + ".tmp");
-        if (file.exists()) {
-            throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
-        }
+//        if (file.exists()) {
+//            throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
+//        }
         try {
             if (!file.createNewFile()) {
                 throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);

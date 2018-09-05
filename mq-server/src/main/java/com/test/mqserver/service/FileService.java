@@ -36,6 +36,16 @@ public class FileService {
     PathConfig pathConfig;
 
     public void handShake(FileSliceInfo fileSliceInfo) {
+        Long account = fileSliceInfo.getAccount();
+        String relativePath = fileSliceInfo.getRelativePath();
+        String idCode = fileSliceInfo.getIdCode();
+        String fileName = fileSliceInfo.getFileName();
+        String path = pathConfig.getPath(account, relativePath);
+        String filePath = pathConfig.getPath() + path;
+        String tempPath = filePath + idCode + ".tmp";
+        filePath = filePath + fileName;
+        fileSliceInfo.setFilePath(filePath);
+        fileSliceInfo.setTempPath(tempPath);
         FileSliceBo fileSliceBo = new FileSliceBo();
         fileSliceBo.setFileSliceInfo(fileSliceInfo);
         sender.handShake(fileSliceBo);
@@ -59,8 +69,9 @@ public class FileService {
         String fileName = fileSlice.getFileName();
         Long account = fileSlice.getAccount();
         String relativePath = fileSlice.getRelativePath();
-        String filePath = pathConfig.getPath(account, relativePath);
-        IndexInfo indexInfo = indexRepos.findByIndexPath(filePath);
+        String path = pathConfig.getPath(account, relativePath);
+        String filePath = pathConfig.getPath() + path;
+        IndexInfo indexInfo = indexRepos.findByIndexPath(path);
         if (indexInfo == null) {
             throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
         }
@@ -73,7 +84,9 @@ public class FileService {
         FileUtil.createTempFile(fileSliceInfo);
     }
 
-    public void deleteFile(String fileName, String path) {
+    public void deleteFile(String fileName, Long account, String relativePath) {
+        String path = pathConfig.getPath(account, relativePath);
+        String filePath = pathConfig.getPath() + path;
         if (fileName == null || fileName.equals("")) {
             throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
         }
@@ -82,7 +95,7 @@ public class FileService {
             throw SpringContextProvider.createPlatformException(ErrorCode.FolderPathFormatError);
         }
         try {
-            FileUtil.deleteFile(path + "/" + fileName);
+            FileUtil.deleteFile(filePath + fileName);
         } catch (Exception e) {
             e.printStackTrace();
         }
