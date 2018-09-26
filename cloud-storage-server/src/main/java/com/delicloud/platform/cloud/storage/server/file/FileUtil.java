@@ -1,0 +1,67 @@
+package com.delicloud.platform.cloud.storage.server.file;
+
+import com.delicloud.platform.common.lang.exception.PlatformException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.multipart.MultipartFile;
+import java.io.*;
+import java.nio.ByteBuffer;
+
+@Slf4j
+public class FileUtil {
+    public static byte[] fileToBytes(MultipartFile file) throws Exception {
+        Long byteSize = file.getSize();
+        InputStream fip = file.getInputStream();
+        byte[] data = new byte[1024];
+        ByteBuffer buffer = ByteBuffer.allocate(Integer.parseInt(byteSize + ""));
+        int fileSize = 0;
+        int len;
+        while ((len = fip.read(data)) != -1) {
+            fileSize += len;
+            buffer.put(data,0,len);
+        }
+        fip.close();
+        ByteBuffer fileBuffer = ByteBuffer.allocate(fileSize);
+        data = fileBuffer.put(buffer.array(), 0, fileSize).array();
+        return data;
+    }
+
+    public static void merge(byte[] file, Long pos, String path) {
+        File tempFile = new File(path);
+        try (RandomAccessFile raf = new RandomAccessFile(tempFile, "rw")) {
+            raf.seek(pos);
+            raf.write(file);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void changeName(String tempPath, String filePath) {
+        File tempFile = new File(tempPath);
+        File file = new File(filePath);
+        if (!tempFile.renameTo(file)) {
+            log.error("文件修改名称时异常: {}{}", tempPath, filePath);
+        }
+    }
+
+    public static void deleteFile(String filePath) {
+        File file = new File(filePath);
+        if (!file.delete()) {
+            log.error("删除文件时异常: {}", filePath);
+        }
+    }
+
+    public static void createFile(byte[] file, String path) {
+        File newFile = new File(path);
+        if (newFile.exists()) {
+            log.error("文件已存在");
+        }
+        try {
+            newFile.createNewFile();
+            FileOutputStream fos = new FileOutputStream(newFile);
+            fos.write(file);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+}

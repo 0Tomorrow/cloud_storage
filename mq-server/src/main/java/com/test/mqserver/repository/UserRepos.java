@@ -1,9 +1,0 @@
-package com.test.mqserver.repository;
-
-import com.test.mqserver.entity.UserInfo;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-
-public interface UserRepos extends JpaRepository<UserInfo, Integer>, JpaSpecificationExecutor<Integer> {
-    UserInfo findFirstByAccount(Long account);
-}

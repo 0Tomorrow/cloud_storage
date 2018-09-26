@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <script src="../static/layui/layui.js"></script>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/webuploader/0.1.0/webuploader.html5only.js"></script>
+    <script src="http://cdn.staticfile.org/webuploader/0.1.0/webuploader.html5only.min.js"></script>
+</head>
+<style>
+    #uploadText{
+        position: absolute;
+        left : 10px;
+    }
+    #input{
+        opacity: 0;
+    }
+    #upload{
+        width: 200px;
+    }
+</style>
+<body>
+<button type="button" class="layui-btn" id="upload">
+    <!--<i class="layui-icon">&#xe67c;</i>上传文件到当前文件夹-->
+    <input type="file" name="file" id = "input"/><i id="uploadText"><i class="layui-icon">&#xe67c;</i>上传文件到当前文件夹</i>
+</button>
+
+<button class="layui-btn layui-btn-normal" id = "pageUp" onclick="back()">上一层</button>
+<button class="layui-btn layui-btn-warm" onclick="createFolderForm()">新建文件夹</button>
+
+<table id="folder" lay-filter="folder"></table>
+<table id="file" lay-filter="file"></table>
+<table class="layui-table">
+    <colgroup>
+        <col width="200">
+        <col width="300">
+        <col>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>上传文件名</th>
+        <th>进度</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id = "uploadShow">
+    <!--<tr>-->
+        <!--<td>许闲心</td>-->
+        <!--<td>-->
+            <!--<div class="layui-progress layui-progress-big" lay-showPercent="yes">-->
+                <!--<div class="layui-progress-bar layui-bg-green" lay-percent="50%"></div>-->
+            <!--</div>-->
+        <!--</td>-->
+    <!--</tr>-->
+    </tbody>
+</table>
+
+<script type="text/html" id="barDemo">
+    <!--<a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>-->
+    <!--<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>-->
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+<script src="../static/js/index.js"></script>
+</body>
+</html>

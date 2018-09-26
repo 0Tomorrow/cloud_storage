@@ -1,0 +1,58 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/cloud-storage?useUnicode=true&amp;characterEncoding=utf-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: root
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+    timeout: 2000
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    generate-ddl: true
+    database: mysql
+  cloud:
+    stream:
+      bindings:
+        file_merge_input:
+          destination: file_merge
+          group: file
+          consumer:
+            concurrency: 5
+        file_merge_output:
+          destination: file_merge
+server:
+  port: 8020
+
+logging:
+  level:
+    root: info
+
+file:
+  rootPath: "E://cloud_storage/"
+
+loginCacheTime: 24 * 60
+
+#icon:
+#  pdfIcon:
+#  txtIcon:
