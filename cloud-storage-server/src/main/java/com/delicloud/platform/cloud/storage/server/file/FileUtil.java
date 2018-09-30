@@ -2,6 +2,7 @@ package com.delicloud.platform.cloud.storage.server.file;
 
 import com.delicloud.platform.common.lang.exception.PlatformException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -63,5 +64,13 @@ public class FileUtil {
             e.printStackTrace();
         }
 
+    }
+
+    public static String getFileMd5(String path) {
+        try {
+            return DigestUtils.md5Hex(new FileInputStream(path));
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

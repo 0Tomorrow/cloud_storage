@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.delicloud.platform:cloudapp-client:1.0.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/delicloud/platform/cloudapp-client/1.0.0-SNAPSHOT/cloudapp-client-1.0.0-20180806.084124-146.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/delicloud/platform/cloudapp-client/1.0.0-SNAPSHOT/cloudapp-client-1.0.0-20180927.150842-150.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/com/delicloud/platform/cloudapp-client/1.0.0-SNAPSHOT/cloudapp-client-1.0.0-20180806.084124-146-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/delicloud/platform/cloudapp-client/1.0.0-SNAPSHOT/cloudapp-client-1.0.0-20180927.150842-150-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/delicloud/platform/cloudapp-client/1.0.0-SNAPSHOT/cloudapp-client-1.0.0-20180806.084124-146-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/delicloud/platform/cloudapp-client/1.0.0-SNAPSHOT/cloudapp-client-1.0.0-20180927.150842-150-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

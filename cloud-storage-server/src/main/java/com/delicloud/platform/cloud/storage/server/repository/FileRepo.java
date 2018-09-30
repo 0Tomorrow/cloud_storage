@@ -25,5 +25,8 @@ public interface FileRepo extends MyRepository<TFileInfo, Long> {
             "WHERE t1.update_by = ?1 and t2.path = ?2")
     void deleteAllByUpdateByAndPath(Long account, String path);
 
-    List<TFileInfo> findByUpdateBy(Long updateBy, Pageable page);
+    @Query(nativeQuery = true, value = "SELECT * FROM t_file_info t1 " +
+            "JOIN t_index_info t2 on t1.index_info_id = t2.id " +
+            "WHERE t1.update_by = ?1 and t2.path = ?2 and t1.file_name = ?3")
+    TFileInfo findFirstByUpdateByAndPathAndFileName(Long account, String path, String fileName);
 }

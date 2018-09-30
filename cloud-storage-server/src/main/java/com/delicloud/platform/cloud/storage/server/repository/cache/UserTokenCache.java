@@ -13,23 +13,23 @@ import java.util.Map;
 @Component
 public class UserTokenCache implements CacheableService {
 
-    @Value("${loginCacheTime: 24 * 60}")
+    @Value("${cache.loginCacheTime: 24}")
     Long loginCacheTime;
 
     @CachePut(value = "UserToken", key = "#key.toString()", condition = "#key != null")
-    public TUserInfo putUserToken(String key, TUserInfo tUserInfo) {
-        return tUserInfo;
+    public String putUserToken(String key, String token) {
+        return token;
     }
 
     @Cacheable(value = "UserToken", key = "#key.toString()", condition = "#key != null")
-    public TUserInfo getUserToken(String key) {
+    public String getUserToken(String key) {
         return null;
     }
 
     @Override
     public Map<String, Long> initCacheExpireTime() {
         Map<String, Long> map = new HashMap<>();
-        map.put("UserToken", loginCacheTime * 60);
+        map.put("UserToken", loginCacheTime * 60 * 60);
         return map;
     }
 

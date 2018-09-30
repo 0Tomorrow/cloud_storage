@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class TestController {
 
-    @Token
+//    @Token
     @RequestMapping(value = "/test", method = RequestMethod.POST)
     public void test() {
     }

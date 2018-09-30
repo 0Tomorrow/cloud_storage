@@ -3,9 +3,11 @@ package com.delicloud.platform.cloud.storage.server.service;
 import com.delicloud.platform.cloud.storage.core.bo.FileInfoResp;
 import com.delicloud.platform.cloud.storage.core.enums.FileState;
 import com.delicloud.platform.cloud.storage.core.bo.FileInfo;
+import com.delicloud.platform.cloud.storage.server.bo.PdfImgInfo;
 import com.delicloud.platform.cloud.storage.server.bo.SliceInfo;
 import com.delicloud.platform.cloud.storage.server.config.IconConfig;
 import com.delicloud.platform.cloud.storage.server.config.PathConfig;
+import com.delicloud.platform.cloud.storage.server.config.PreviewConfig;
 import com.delicloud.platform.cloud.storage.server.entity.TFileInfo;
 import com.delicloud.platform.cloud.storage.server.entity.TUploadInfo;
 import com.delicloud.platform.cloud.storage.server.file.FileUtil;
@@ -20,6 +22,7 @@ import com.delicloud.platform.common.lang.util.MyBeanUtils;
 import com.delicloud.platform.common.lang.util.StringEncoder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.util.ArrayList;
@@ -33,6 +36,9 @@ public class FileService {
 
     @Autowired
     IconConfig iconConfig;
+
+    @Autowired
+    PreviewConfig previewConfig;
 
     @Autowired
     FileRepo fileRepo;
@@ -172,12 +178,25 @@ public class FileService {
         return false;
     }
 
+//    @Scheduled(cron = "0/2 * * * * *")
     public void deleteFile(String path, String fileName, Long account) {
         String absoluteFilePath = pathConfig.getAbsoluteFilePath(account, path, fileName);
+        String relativePath = pathConfig.getRelativePath(path);
 
-        fileRepo.deleteAllByUpdateByAndPathAndFileName(account, path, fileName);
+        fileRepo.deleteAllByUpdateByAndPathAndFileName(account, relativePath, fileName);
 
         FileUtil.deleteFile(absoluteFilePath);
+    }
+
+    public List<PdfImgInfo> preview(String path, String fileName, Long account) {
+        String absoluteFilePath = pathConfig.getAbsoluteFilePath(account, path, fileName);
+        String relativePath = pathConfig.getRelativePath(path);
+        TFileInfo tFileInfo = fileRepo.findFirstByUpdateByAndPathAndFileName(account, relativePath, fileName);
+        switch (tFileInfo.getType()) {
+            case "pdf" : return previewConfig.pdfPreview(absoluteFilePath);
+            default:
+        }
+        return null;
     }
 
 }

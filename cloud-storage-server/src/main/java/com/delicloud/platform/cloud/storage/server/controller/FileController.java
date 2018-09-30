@@ -3,6 +3,7 @@ package com.delicloud.platform.cloud.storage.server.controller;
 import com.delicloud.platform.cloud.storage.core.bo.FileInfo;
 import com.delicloud.platform.cloud.storage.core.bo.FileInfoResp;
 import com.delicloud.platform.cloud.storage.server.aop.Token;
+import com.delicloud.platform.cloud.storage.server.bo.PdfImgInfo;
 import com.delicloud.platform.cloud.storage.server.entity.TUserInfo;
 import com.delicloud.platform.cloud.storage.server.service.FileService;
 import com.delicloud.platform.common.lang.bo.RespBase;
@@ -24,7 +25,7 @@ public class FileController {
     @Autowired
     FileService fileService;
 
-    @Token
+//    @Token
     @ApiOperation(value = "通过path查询该路径下的所有文件", response = RespBase.class, produces = MediaType.APPLICATION_JSON_VALUE)
     @RequestMapping(value = "/show", method = RequestMethod.GET)
     public RespBase<List<FileInfoResp>> show(Long account, String path) {
@@ -52,6 +53,12 @@ public class FileController {
     public RespBase deleteFile(String path, String fileName, Long account) {
         fileService.deleteFile(path, fileName, account);
         return RespBase.OK_RESP_BASE;
+    }
+
+    @RequestMapping(value = "/preview", method = RequestMethod.POST)
+    public RespBase<List<PdfImgInfo>> preview(String path, String fileName, Long account) {
+        List<PdfImgInfo> imgList = fileService.preview(path, fileName, account);
+        return new RespBase<>(imgList);
     }
 
 }

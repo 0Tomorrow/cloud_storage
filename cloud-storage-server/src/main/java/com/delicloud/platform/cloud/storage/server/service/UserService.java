@@ -4,7 +4,6 @@ import com.delicloud.platform.cloud.storage.server.entity.TUserInfo;
 import com.delicloud.platform.cloud.storage.server.repository.UserRepo;
 import com.delicloud.platform.cloud.storage.server.repository.cache.UserTokenCache;
 import com.delicloud.platform.cloud.storage.server.util.UserUtil;
-import com.delicloud.platform.common.lang.config.SpringContextProvider;
 import com.delicloud.platform.common.lang.exception.PlatformException;
 import com.delicloud.platform.common.lang.util.StringEncoder;
 import org.apache.commons.lang.StringUtils;
@@ -48,9 +47,9 @@ public class UserService {
 
     private String getToken(TUserInfo tUserInfo) {
         Long account = tUserInfo.getUpdateBy();
-        String s = account + ":" + System.currentTimeMillis();
+        String s = String.valueOf(account) + ":" + System.currentTimeMillis();
         String md5 =  StringEncoder.encodeByMD5(s);
-        userTokenCache.putUserToken(md5, tUserInfo);
+        userTokenCache.putUserToken(tUserInfo.getAccount() + "", md5);
         return md5;
     }
 
