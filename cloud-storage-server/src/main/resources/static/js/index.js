@@ -83,12 +83,36 @@ function addData() {
                 if (reg.test(fileData.fileName)) {
                     $.post(domain + "/file/preview", {"fileName" : fileData.fileName, "account" : account, "path" : path}, function (data) {
                         var list = data.data;
-                        layer.open({
-                            type: 1,
-                            area: '434',
-                            title : fileData.fileName,
-                            content : '<img src="http://' + list[0].path + '" width="434" height="614">'
-                        })
+                        var jsonData = [];
+                        var i = 0;
+                        for (var page in list) {
+                            console.log(list[page])
+                            var pageNumber = i + 1;
+                            var pageCount = list.length;
+                            jsonData[i] = {
+                                "alt": fileData.fileName + "(第" + pageNumber + "页/共" + pageCount + "页)",
+                                "pid": 666, //图片id
+                                "src": "http://" + list[page].pdfPath, //原图地址
+                                "thumb": "" //缩略图地址
+                            };
+                            i++;
+                        }
+                        var json = {
+                            "title": fileData.fileName, //相册标题
+                            "id": 123, //相册id
+                            "start": 0, //初始显示的图片序号，默认0
+                            "data": jsonData
+                        };
+                        layer.photos({
+                            photos: json
+                            ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+                        });
+                        // layer.open({
+                        //     type: 1,
+                        //     area: '434',
+                        //     title : fileData.fileName,
+                        //     content : '<img src="http://' + list[0].pdfPath + '" width="434" height="614">'
+                        // })
                     });
                 }
             } else if(layEvent === 'detail'){ //查看
@@ -242,8 +266,8 @@ function timestampToTime(timestamp) {
     var Y = date.getFullYear() + '-';
     var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
     var D = date.getDate() + ' ';
-    var h = date.getHours() + ':';
-    var m = date.getMinutes() + ':';
-    var s = date.getSeconds();
+    var h = (date.getHours() < 10 ? '0'+date.getHours() : date.getHours()) + ':';
+    var m = (date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes()) + ':';
+    var s = date.getSeconds() < 10 ? '0'+date.getSeconds() : date.getSeconds();
     return Y+M+D+h+m+s;
 }

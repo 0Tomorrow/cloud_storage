@@ -7,6 +7,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 import com.delicloud.platform.cloud.storage.server.bo.PdfImgInfo;
+import com.delicloud.platform.cloud.storage.server.entity.TPdfInfo;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.ImageType;
@@ -54,24 +55,24 @@ public class PdfUtil {
 
             ImageIO.write(imageResult, "jpg", outFile);// 写图片
 
-            PdfImgInfo pdfImgInfo = new PdfImgInfo();
-            pdfImgInfo.setPage(0);
-            pdfImgInfo.setWidth(width);
-            pdfImgInfo.setHeight(height);
-            return pdfImgInfo;
+//            PdfImgInfo pdfImgInfo = new PdfImgInfo();
+//            pdfImgInfo.setIndex(0);
+//            pdfImgInfo.setWidth(width);
+//            pdfImgInfo.setHeight(height);
+//            return pdfImgInfo;
         }catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public static List<PdfImgInfo> pdfToImageList(String pdfPath, String imgPath, String relativePath) {
+    public static List<TPdfInfo> pdfToImageList(String pdfPath, String imgPath, String relativePath) {
         try{
-            File fileForlder = new File(imgPath);
-            if (fileForlder.exists()) {
+            File fileFolder = new File(imgPath);
+            if (fileFolder.exists()) {
                 return null;
             } else {
-                fileForlder.mkdir();
+                fileFolder.mkdir();
             }
 
             if(pdfPath==null||"".equals(pdfPath)||!pdfPath.endsWith(".pdf"))
@@ -82,24 +83,24 @@ public class PdfUtil {
             //利用PdfBox生成图像
             PDDocument pdDocument = PDDocument.load(new File(pdfPath));
             PDFRenderer renderer = new PDFRenderer(pdDocument);
-            List<PdfImgInfo> imgList = new ArrayList<>();
+            List<TPdfInfo> imgList = new ArrayList<>();
             //循环每个页码
             for(int i=0,len=pdDocument.getNumberOfPages(); i<len; i++){
                 File outFile = new File(imgPath + i + ".jpg");
                 BufferedImage image = renderer.renderImageWithDPI(i, DEFAULT_DPI, ImageType.RGB);
                 int imageHeight=image.getHeight();
                 int imageWidth=image.getWidth();
-                imageResult= new BufferedImage(imageWidth, imageHeight*len, BufferedImage.TYPE_INT_RGB);
+                imageResult= new BufferedImage(imageWidth, imageHeight, BufferedImage.TYPE_INT_RGB);
                 singleImgRGB= image.getRGB(0, 0, imageWidth, imageHeight, null, 0, imageWidth);
                 imageResult.setRGB(0, 0, imageWidth, imageHeight, singleImgRGB, 0, imageWidth); // 写入流中
                 ImageIO.write(imageResult, "jpg", outFile);// 写图片
 
-                PdfImgInfo pdfImgInfo = new PdfImgInfo();
-                pdfImgInfo.setPage(i);
-                pdfImgInfo.setWidth(imageWidth);
-                pdfImgInfo.setHeight(imageHeight);
-                pdfImgInfo.setPath(relativePath + i + ".jpg");
-                imgList.add(pdfImgInfo);
+                TPdfInfo pdfInfo = new TPdfInfo();
+                pdfInfo.setPdfIndex(i);
+                pdfInfo.setPdfWidth(imageWidth);
+                pdfInfo.setPdfHeight(imageHeight);
+                pdfInfo.setPdfPath(relativePath + i + ".jpg");
+                imgList.add(pdfInfo);
             }
             pdDocument.close();
             return imgList;

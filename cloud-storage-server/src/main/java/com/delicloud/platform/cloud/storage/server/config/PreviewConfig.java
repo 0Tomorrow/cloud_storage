@@ -1,6 +1,7 @@
 package com.delicloud.platform.cloud.storage.server.config;
 
 import com.delicloud.platform.cloud.storage.server.bo.PdfImgInfo;
+import com.delicloud.platform.cloud.storage.server.entity.TPdfInfo;
 import com.delicloud.platform.cloud.storage.server.file.FileUtil;
 import com.delicloud.platform.cloud.storage.server.util.PdfUtil;
 import com.delicloud.platform.common.lang.exception.PlatformException;
@@ -17,13 +18,16 @@ public class PreviewConfig {
     private String pdfImgRelativePath;
     private String pdfImgAbsolutePath;
 
-    public List<PdfImgInfo> pdfPreview(String path) {
-        String fileMd5 = FileUtil.getFileMd5(path);
-        if (null == fileMd5) {
-            throw new PlatformException("创建文件md5失败");
+    public List<TPdfInfo> pdfPreview(String path, String pdfMd5) {
+        String imgPath = pdfImgAbsolutePath + pdfMd5 + "/";
+        String relativePath = pdfImgRelativePath + pdfMd5 + "/";
+        List<TPdfInfo> list = PdfUtil.pdfToImageList(path, imgPath, relativePath);
+        if (list == null) {
+            return null;
         }
-        String imgPath = pdfImgAbsolutePath + fileMd5 + "/";
-        String relativePath = pdfImgRelativePath + fileMd5 + "/";
-        return PdfUtil.pdfToImageList(path, imgPath, relativePath);
+        for (TPdfInfo tPdfInfo : list) {
+            tPdfInfo.setPdfMd5(pdfMd5);
+        }
+        return list;
     }
 }

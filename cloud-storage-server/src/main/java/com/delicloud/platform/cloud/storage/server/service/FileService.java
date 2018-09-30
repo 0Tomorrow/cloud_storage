@@ -9,12 +9,14 @@ import com.delicloud.platform.cloud.storage.server.config.IconConfig;
 import com.delicloud.platform.cloud.storage.server.config.PathConfig;
 import com.delicloud.platform.cloud.storage.server.config.PreviewConfig;
 import com.delicloud.platform.cloud.storage.server.entity.TFileInfo;
+import com.delicloud.platform.cloud.storage.server.entity.TPdfInfo;
 import com.delicloud.platform.cloud.storage.server.entity.TUploadInfo;
 import com.delicloud.platform.cloud.storage.server.file.FileUtil;
 import com.delicloud.platform.cloud.storage.server.file.TempFileUtil;
 import com.delicloud.platform.cloud.storage.server.mq.MqFileService;
 import com.delicloud.platform.cloud.storage.server.repository.FileRepo;
 import com.delicloud.platform.cloud.storage.server.repository.IndexRepo;
+import com.delicloud.platform.cloud.storage.server.repository.PdfRepo;
 import com.delicloud.platform.cloud.storage.server.repository.UploadRepo;
 import com.delicloud.platform.cloud.storage.server.repository.cache.FileSliceCache;
 import com.delicloud.platform.common.lang.exception.PlatformException;
@@ -54,6 +56,9 @@ public class FileService {
 
     @Autowired
     MqFileService mqFileService;
+
+    @Autowired
+    PdfRepo pdfRepo;
 
     public List<FileInfoResp> findFile(Long account, String path) {
         if (account == null) {
@@ -192,11 +197,19 @@ public class FileService {
         String absoluteFilePath = pathConfig.getAbsoluteFilePath(account, path, fileName);
         String relativePath = pathConfig.getRelativePath(path);
         TFileInfo tFileInfo = fileRepo.findFirstByUpdateByAndPathAndFileName(account, relativePath, fileName);
-        switch (tFileInfo.getType()) {
-            case "pdf" : return previewConfig.pdfPreview(absoluteFilePath);
-            default:
+        if (!tFileInfo.getType().equals("pdf")) {
+            return null;
         }
-        return null;
+        String fileMd5 = FileUtil.getFileMd5(absoluteFilePath);
+        if (null == fileMd5) {
+            throw new PlatformException("创建文件md5失败");
+        }
+        List<TPdfInfo> list = pdfRepo.findAllByPdfMd5OrderByPdfIndex(fileMd5);
+        if (list.isEmpty()) {
+            list = previewConfig.pdfPreview(absoluteFilePath, fileMd5);
+            pdfRepo.save(list);
+        }
+        return MyBeanUtils.copyCollectionProperties(list, PdfImgInfo.class);
     }
 
 }

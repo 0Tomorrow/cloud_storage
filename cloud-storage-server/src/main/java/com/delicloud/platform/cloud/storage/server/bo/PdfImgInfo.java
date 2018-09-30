@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class PdfImgInfo {
-    private String path;
-    private Integer page;
-    private Integer width;
-    private Integer height;
+    private String pdfPath;
+    private Integer pdfIndex;
+    private Integer pdfWidth;
+    private Integer pdfHeight;
 }
