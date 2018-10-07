@@ -26,7 +26,7 @@ public class FileController {
     @Autowired
     FileService fileService;
 
-//    @Token
+    @Token
     @ApiOperation(value = "通过path查询该路径下的所有文件", response = RespBase.class, produces = MediaType.APPLICATION_JSON_VALUE)
     @RequestMapping(value = "/show", method = RequestMethod.GET)
     public RespBase<List<FileInfoResp>> show(Long account, String path) {

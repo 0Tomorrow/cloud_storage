@@ -85,7 +85,7 @@ public class IndexService {
         if (fileList != null && fileList.size() != 0) {
             return true;
         }
-        List<TIndexInfo> indexList = indexRepo.findAllById(Long.parseLong(indexId));
+        List<TIndexInfo> indexList = indexRepo.findAllByPrevIndexId(Long.parseLong(indexId));
         for (TIndexInfo tIndexInfo : indexList) {
             if (haveFile(tIndexInfo.getId().toString())) {
                 return true;
@@ -98,9 +98,12 @@ public class IndexService {
     public void deleteAllIndex(String indexId) {
         deleteAllFile(indexId);
         TIndexInfo tIndexInfo = indexRepo.findOne(Long.parseLong(indexId));
+        if (tIndexInfo == null) {
+            throw new PlatformException("文件夹不存在");
+        }
         String indexAbsolutePath = pathConfig.getAbsolutePath(tIndexInfo);
 
-        List<TIndexInfo> indexList = indexRepo.findAllById(Long.parseLong(indexId));
+        List<TIndexInfo> indexList = indexRepo.findAllByPrevIndexId(Long.parseLong(indexId));
         if (indexList != null && indexList.size() != 0) {
             for (TIndexInfo indexInfo : indexList) {
                 deleteAllIndex(indexInfo.getId().toString());

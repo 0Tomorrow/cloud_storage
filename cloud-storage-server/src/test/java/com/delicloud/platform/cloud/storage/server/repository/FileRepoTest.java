@@ -2,6 +2,7 @@ package com.delicloud.platform.cloud.storage.server.repository;
 
 import com.delicloud.platform.cloud.storage.server.Application;
 import com.delicloud.platform.cloud.storage.server.entity.TIndexInfo;
+import com.delicloud.platform.cloud.storage.server.entity.TUploadInfo;
 import com.delicloud.platform.cloud.storage.server.entity.TUserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -20,6 +21,15 @@ import java.util.List;
 public class FileRepoTest {
     @Autowired
     UserRepo userRepo;
+
+    @Autowired
+    UploadRepo uploadRepo;
+
+    @Test
+    public void toStringTest() {
+        TUploadInfo tUploadInfo = uploadRepo.findOne(498443824138289152L);
+        log.info("toString : {}", tUploadInfo);
+    }
 
     @Test
     public void test() {

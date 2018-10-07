@@ -6,6 +6,8 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
 import java.nio.ByteBuffer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Slf4j
 public class FileUtil {
@@ -31,6 +33,7 @@ public class FileUtil {
         try (RandomAccessFile raf = new RandomAccessFile(tempFile, "rw")) {
             raf.seek(pos);
             raf.write(file);
+            raf.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,7 +49,7 @@ public class FileUtil {
 
     public static void deleteFile(String filePath) {
         File file = new File(filePath);
-        if (!file.delete()) {
+        if (!file.exists() || !file.delete()) {
             log.error("删除文件时异常: {}", filePath);
         }
     }
@@ -63,7 +66,6 @@ public class FileUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public static String getFileMd5(String path) {

@@ -12,7 +12,7 @@ public interface IndexRepo extends MyRepository<TIndexInfo, Long> {
 
     TIndexInfo findFirstByUpdateByAndPath(Long account, String path);
 
-    List<TIndexInfo> findAllById(Long id);
+    List<TIndexInfo> findAllByPrevIndexId(Long id);
 
     @Query(nativeQuery = true, value = "SELECT * FROM t_index_info t1 " +
             "JOIN t_index_info t2 " +

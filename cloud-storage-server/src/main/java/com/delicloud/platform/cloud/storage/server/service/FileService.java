@@ -9,7 +9,6 @@ import com.delicloud.platform.cloud.storage.server.config.IconConfig;
 import com.delicloud.platform.cloud.storage.server.config.PathConfig;
 import com.delicloud.platform.cloud.storage.server.config.PreviewConfig;
 import com.delicloud.platform.cloud.storage.server.entity.TFileInfo;
-import com.delicloud.platform.cloud.storage.server.entity.TIndexInfo;
 import com.delicloud.platform.cloud.storage.server.entity.TPdfInfo;
 import com.delicloud.platform.cloud.storage.server.entity.TUploadInfo;
 import com.delicloud.platform.cloud.storage.server.file.FileUtil;
@@ -19,7 +18,6 @@ import com.delicloud.platform.cloud.storage.server.repository.FileRepo;
 import com.delicloud.platform.cloud.storage.server.repository.IndexRepo;
 import com.delicloud.platform.cloud.storage.server.repository.PdfRepo;
 import com.delicloud.platform.cloud.storage.server.repository.UploadRepo;
-import com.delicloud.platform.cloud.storage.server.repository.cache.FileSliceCache;
 import com.delicloud.platform.common.lang.exception.PlatformException;
 import com.delicloud.platform.common.lang.util.MyBeanUtils;
 import com.delicloud.platform.common.lang.util.StringEncoder;
@@ -27,8 +25,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 @Slf4j
@@ -66,6 +68,7 @@ public class FileService {
         List<TFileInfo> tList = fileRepo.findAllByUpdateByAndPath(account, relativePath);
         for (TFileInfo tFileInfo : tList) {
             FileInfoResp fileInfoResp = MyBeanUtils.copyProperties2(tFileInfo, FileInfoResp.class);
+            fileInfoResp.setId(tFileInfo.getId().toString());
             list.add(fileInfoResp);
         }
         return list;
@@ -90,9 +93,37 @@ public class FileService {
         return saveFileInfoAndUpdateInfo(fileInfo);
     }
 
+    private String veriFileName(String fileName, Long account, String path) {
+        int index = 0;
+        String testFileName = fileName;
+        while (true) {
+            if (!exist(testFileName, account, path)) {
+                return index == 0 ? fileName : testFileName;
+            }
+            index++;
+            int s = fileName.lastIndexOf('.');
+            String type = fileName.substring(s, fileName.length());
+            testFileName = fileName.substring(0, s);
+            testFileName = testFileName + "(" + index + ")" + type;
+        }
+    }
+
+    private boolean exist(String fileName, Long account, String path) {
+        List<FileInfoResp> fileList = findFile(account, path);
+        for(FileInfoResp fileInfoResp : fileList) {
+            if (fileInfoResp.getFileName().equals(fileName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private String saveFileInfoAndUpdateInfo(FileInfo fileInfo) {
         Long account = fileInfo.getUpdateBy();
         String path = fileInfo.getPath();
+        String fileName = fileInfo.getFileName();
+        fileName = veriFileName(fileName, account, path);
+        fileInfo.setFileName(fileName);
         String relativePath = pathConfig.getRelativePath(path);
         TFileInfo tFileInfo = MyBeanUtils.copyProperties2(fileInfo, TFileInfo.class);
         tFileInfo.setIndexInfo(indexRepo.findFirstByUpdateByAndPath(account, relativePath));
