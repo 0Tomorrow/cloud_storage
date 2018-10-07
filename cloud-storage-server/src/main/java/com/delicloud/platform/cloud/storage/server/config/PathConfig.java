@@ -1,5 +1,8 @@
 package com.delicloud.platform.cloud.storage.server.config;
 
+import com.delicloud.platform.cloud.storage.server.bo.FileReq;
+import com.delicloud.platform.cloud.storage.server.entity.TFileInfo;
+import com.delicloud.platform.cloud.storage.server.entity.TIndexInfo;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -23,6 +26,12 @@ public class PathConfig {
         return path;
     }
 
+    public String getAbsolutePath(TIndexInfo tIndexInfo) {
+        Long account = tIndexInfo.getUpdateBy();
+        String relativePath = tIndexInfo.getPath();
+        return getAbsolutePath(account, relativePath);
+    }
+
     public String getAbsolutePath(Long account, String path) {
         String relativePath = getRelativePath(path);
         return rootPath + account + relativePath;
@@ -31,6 +40,13 @@ public class PathConfig {
     public String getTempPath(Long account, String path, String fileName) {
         String absolutePath = getAbsolutePath(account, path);
         return absolutePath + fileName + ".temp";
+    }
+
+    public String getAbsoluteFilePath(TFileInfo tFileInfo) {
+        Long account = tFileInfo.getUpdateBy();
+        String path = tFileInfo.getIndexInfo().getPath();
+        String fileName = tFileInfo.getFileName();
+        return getAbsoluteFilePath(account, path, fileName);
     }
 
     public String getAbsoluteFilePath(Long account, String path, String fileName) {

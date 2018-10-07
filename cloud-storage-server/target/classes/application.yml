@@ -51,7 +51,7 @@ logging:
 file:
   rootPath: "E://tomcat/apache-tomcat-8.5.34/webapps/ROOT/cloud_storage/user_file/"
 preview:
-  pdfImgRelativePath: "localhost:8080/cloud_storage/pdf_img/"
+  pdfImgRelativePath: "/cloud_storage/pdf_img/"
   pdfImgAbsolutePath: "E://tomcat/apache-tomcat-8.5.34/webapps/ROOT/cloud_storage/pdf_img/"
 cache:
   loginCacheTime: 24

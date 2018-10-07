@@ -1,10 +1,7 @@
 package com.delicloud.platform.cloud.storage.server.config;
 
-import com.delicloud.platform.cloud.storage.server.bo.PdfImgInfo;
 import com.delicloud.platform.cloud.storage.server.entity.TPdfInfo;
-import com.delicloud.platform.cloud.storage.server.file.FileUtil;
 import com.delicloud.platform.cloud.storage.server.util.PdfUtil;
-import com.delicloud.platform.common.lang.exception.PlatformException;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

@@ -3,6 +3,7 @@ package com.delicloud.platform.cloud.storage.server.controller;
 import com.delicloud.platform.cloud.storage.core.bo.FileInfo;
 import com.delicloud.platform.cloud.storage.core.bo.FileInfoResp;
 import com.delicloud.platform.cloud.storage.server.aop.Token;
+import com.delicloud.platform.cloud.storage.server.bo.FileReq;
 import com.delicloud.platform.cloud.storage.server.bo.PdfImgInfo;
 import com.delicloud.platform.cloud.storage.server.entity.TUserInfo;
 import com.delicloud.platform.cloud.storage.server.service.FileService;
@@ -50,15 +51,23 @@ public class FileController {
 
     @ApiOperation(value = "删除文件", response = RespBase.class, produces = MediaType.APPLICATION_JSON_VALUE)
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public RespBase deleteFile(String path, String fileName, Long account) {
-        fileService.deleteFile(path, fileName, account);
+    public RespBase deleteFile(String id) {
+        fileService.deleteFile(id);
         return RespBase.OK_RESP_BASE;
     }
 
+    @ApiOperation(value = "预览文件", response = RespBase.class, produces = MediaType.APPLICATION_JSON_VALUE)
     @RequestMapping(value = "/preview", method = RequestMethod.POST)
-    public RespBase<List<PdfImgInfo>> preview(String path, String fileName, Long account) {
-        List<PdfImgInfo> imgList = fileService.preview(path, fileName, account);
+    public RespBase<List<PdfImgInfo>> preview(String id) {
+        List<PdfImgInfo> imgList = fileService.preview(id);
         return new RespBase<>(imgList);
+    }
+
+    @ApiOperation(value = "下载文件", response = RespBase.class, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "download", method = RequestMethod.POST)
+    public RespBase<String> download(String id) {
+        String downloadPath = fileService.getDownloadPath(id);
+        return new RespBase<>(downloadPath);
     }
 
 }

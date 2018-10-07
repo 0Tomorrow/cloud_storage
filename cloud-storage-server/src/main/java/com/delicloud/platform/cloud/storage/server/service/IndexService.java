@@ -14,6 +14,7 @@ import com.delicloud.platform.common.lang.exception.PlatformException;
 import com.delicloud.platform.common.lang.util.MyBeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,7 @@ public class IndexService {
         for (TIndexInfo tIndexInfo : tList) {
             IndexInfoResp indexInfoResp = MyBeanUtils.copyProperties2(tIndexInfo, IndexInfoResp.class);
             indexInfoResp.setIcon(iconConfig.getIcon("folder"));
+            indexInfoResp.setId(tIndexInfo.getId().toString());
             list.add(indexInfoResp);
         }
         return list;
@@ -71,59 +73,52 @@ public class IndexService {
         indexRepo.save(tIndexInfo);
     }
 
-    public void deleteIndex(IndexInfo indexInfo, boolean sure) {
-        String path = indexInfo.getPath();
-        Long account = indexInfo.getUpdateBy();
-
-        String relativePath = pathConfig.getRelativePath(path);
-        if (haveFile(account, relativePath) && !sure) {
+    public void deleteIndex(String id, boolean sure) {
+        if (haveFile(id) && !sure) {
             throw new PlatformException("该文件夹下还有文件，请确认是否全部删除");
         }
-        deleteAllIndex(account, relativePath);
+        deleteAllIndex(id);
     }
 
-    private boolean haveFile(Long account, String relativePath) {
-        List<TFileInfo> fileList = fileRepo.findAllByUpdateByAndPath(account, relativePath);
+    private boolean haveFile(String indexId) {
+        List<TFileInfo> fileList = fileRepo.findAllByIndexInfoId(Long.parseLong(indexId));
         if (fileList != null && fileList.size() != 0) {
             return true;
         }
-        List<TIndexInfo> indexList = indexRepo.findAllByUpdateByAndPrevPath(account, relativePath);
+        List<TIndexInfo> indexList = indexRepo.findAllById(Long.parseLong(indexId));
         for (TIndexInfo tIndexInfo : indexList) {
-            String nextPath = tIndexInfo.getPath();
-            if (haveFile(account, nextPath)) {
+            if (haveFile(tIndexInfo.getId().toString())) {
                 return true;
             }
         }
         return false;
     }
 
-    private void deleteAllIndex(Long account, String relativePath) {
-        deleteAllFile(account, relativePath);
+    @Transactional
+    public void deleteAllIndex(String indexId) {
+        deleteAllFile(indexId);
+        TIndexInfo tIndexInfo = indexRepo.findOne(Long.parseLong(indexId));
+        String indexAbsolutePath = pathConfig.getAbsolutePath(tIndexInfo);
 
-        String indexAbsolutePath = pathConfig.getAbsolutePath(account, relativePath);
-
-        List<TIndexInfo> indexList = indexRepo.findAllByUpdateByAndPrevPath(account, relativePath);
+        List<TIndexInfo> indexList = indexRepo.findAllById(Long.parseLong(indexId));
         if (indexList != null && indexList.size() != 0) {
-            for (TIndexInfo tIndexInfo : indexList) {
-                deleteAllIndex(account, tIndexInfo.getPath());
+            for (TIndexInfo indexInfo : indexList) {
+                deleteAllIndex(indexInfo.getId().toString());
             }
         }
-        indexRepo.deleteAllByUpdateByAndPath(account, relativePath);
+        indexRepo.delete(Long.parseLong(indexId));
         IndexUtil.deleteIndex(indexAbsolutePath);
-
     }
 
-    private void deleteAllFile(Long account, String relativePath) {
-        List<TFileInfo> fileList = fileRepo.findAllByUpdateByAndPath(account, relativePath);
+    private void deleteAllFile(String indexId) {
+        List<TFileInfo> fileList = fileRepo.findAllByIndexInfoId(Long.parseLong(indexId));
 
         if (fileList == null || fileList.size() == 0) {
             return;
         }
-        fileRepo.deleteAllByUpdateByAndPath(account, relativePath);
+        fileRepo.deleteAllByIndexInfoId(Long.parseLong(indexId));
         for (TFileInfo tFileInfo : fileList) {
-            String fileName = tFileInfo.getFileName();
-            String path = tFileInfo.getIndexInfo().getPath();
-            String absoluteFilePath = pathConfig.getAbsoluteFilePath(account, path, fileName);
+            String absoluteFilePath = pathConfig.getAbsoluteFilePath(tFileInfo);
             FileUtil.deleteFile(absoluteFilePath);
         }
     }

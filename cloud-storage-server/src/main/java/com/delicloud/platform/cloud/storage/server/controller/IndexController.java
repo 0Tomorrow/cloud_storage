@@ -34,8 +34,8 @@ public class IndexController {
 
     @ApiOperation(value = "删除文件夹", response = RespBase.class, produces = MediaType.APPLICATION_JSON_VALUE)
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public RespBase deleteIndex(IndexInfo indexInfo, boolean sure) {
-        indexService.deleteIndex(indexInfo, sure);
+    public RespBase deleteIndex(String id, boolean sure) {
+        indexService.deleteIndex(id, sure);
         return RespBase.OK_RESP_BASE;
     }
 }

@@ -1,7 +1,7 @@
 var path = "";
 // var account = "15927860204";
 var account = sessionStorage.getItem("account");
-var domain = "http://localhost:8020";
+var domain = "http://192.168.0.36:8020";
 function addData() {
     layui.use('table', function(){
         var table = layui.table;

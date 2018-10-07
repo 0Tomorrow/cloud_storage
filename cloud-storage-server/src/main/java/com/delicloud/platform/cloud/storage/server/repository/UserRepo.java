@@ -1,16 +1,14 @@
 package com.delicloud.platform.cloud.storage.server.repository;
 
-import com.delicloud.platform.cloud.storage.server.bo.SliceInfo;
 import com.delicloud.platform.cloud.storage.server.entity.TUserInfo;
 import com.delicloud.platform.common.data.repository.MyRepository;
-import org.hibernate.annotations.OnDelete;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface UserRepo extends MyRepository<TUserInfo, Long> {
     TUserInfo findFirstByAccountAndPassword(Long account, String password);
 
+    @Modifying
     @Transactional
     void deleteAllByAccount(Long account);
 

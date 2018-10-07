@@ -9,6 +9,7 @@ import com.delicloud.platform.cloud.storage.server.config.IconConfig;
 import com.delicloud.platform.cloud.storage.server.config.PathConfig;
 import com.delicloud.platform.cloud.storage.server.config.PreviewConfig;
 import com.delicloud.platform.cloud.storage.server.entity.TFileInfo;
+import com.delicloud.platform.cloud.storage.server.entity.TIndexInfo;
 import com.delicloud.platform.cloud.storage.server.entity.TPdfInfo;
 import com.delicloud.platform.cloud.storage.server.entity.TUploadInfo;
 import com.delicloud.platform.cloud.storage.server.file.FileUtil;
@@ -24,7 +25,6 @@ import com.delicloud.platform.common.lang.util.MyBeanUtils;
 import com.delicloud.platform.common.lang.util.StringEncoder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.util.ArrayList;
@@ -50,9 +50,6 @@ public class FileService {
 
     @Autowired
     UploadRepo uploadRepo;
-
-    @Autowired
-    FileSliceCache fileSliceCache;
 
     @Autowired
     MqFileService mqFileService;
@@ -171,7 +168,7 @@ public class FileService {
         Integer sliceCount = tUploadInfo.getSliceCount();
         uploadCount++;
         if (uploadCount.equals(sliceCount)) {
-            log.info("upload finished, file : ", tUploadInfo);
+            log.info("upload finished, file : {}", tUploadInfo);
             tUploadInfo.setUploadCount(uploadCount);
             tUploadInfo.setFileState(FileState.FINISH.getCode());
             uploadRepo.save(tUploadInfo);
@@ -184,19 +181,23 @@ public class FileService {
     }
 
 //    @Scheduled(cron = "0/2 * * * * *")
-    public void deleteFile(String path, String fileName, Long account) {
-        String absoluteFilePath = pathConfig.getAbsoluteFilePath(account, path, fileName);
-        String relativePath = pathConfig.getRelativePath(path);
-
-        fileRepo.deleteAllByUpdateByAndPathAndFileName(account, relativePath, fileName);
-
+    public void deleteFile(String id) {
+        TFileInfo tFileInfo = fileRepo.getOne(Long.parseLong(id));
+        if (tFileInfo == null) {
+            throw new PlatformException("id不存在");
+        }
+        uploadRepo.deleteAllByTFileInfo(Long.parseLong(id));
+        fileRepo.delete(Long.parseLong(id));
+        String absoluteFilePath = pathConfig.getAbsoluteFilePath(tFileInfo);
         FileUtil.deleteFile(absoluteFilePath);
     }
 
-    public List<PdfImgInfo> preview(String path, String fileName, Long account) {
-        String absoluteFilePath = pathConfig.getAbsoluteFilePath(account, path, fileName);
-        String relativePath = pathConfig.getRelativePath(path);
-        TFileInfo tFileInfo = fileRepo.findFirstByUpdateByAndPathAndFileName(account, relativePath, fileName);
+    public List<PdfImgInfo> preview(String id) {
+        TFileInfo tFileInfo = fileRepo.getOne(Long.parseLong(id));
+        if (tFileInfo == null) {
+            throw new PlatformException("id不存在");
+        }
+        String absoluteFilePath = pathConfig.getAbsoluteFilePath(tFileInfo);
         if (!tFileInfo.getType().equals("pdf")) {
             return null;
         }
@@ -212,4 +213,16 @@ public class FileService {
         return MyBeanUtils.copyCollectionProperties(list, PdfImgInfo.class);
     }
 
+    public String getDownloadPath(String id) {
+        TFileInfo tFileInfo = fileRepo.getOne(Long.parseLong(id));
+        if (tFileInfo == null) {
+            throw new PlatformException("id不存在");
+        }
+        Long account = tFileInfo.getUpdateBy();
+        String fileName = tFileInfo.getFileName();
+        String path = tFileInfo.getIndexInfo().getPath();
+        String relativePath = pathConfig.getRelativePath(path);
+//        TFileInfo tFileInfo = fileRepo.findFirstByUpdateByAndPathAndFileName(account, relativePath, fileName);
+        return "/cloud_storage/user_file/" + account + relativePath + fileName;
+    }
 }

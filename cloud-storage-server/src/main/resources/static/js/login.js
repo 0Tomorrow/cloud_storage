@@ -1,5 +1,5 @@
 $(function() {
-    var domain = "http://localhost:8020";
+    var domain = "http://192.168.0.36:8020";
 
 
     $('#login #password').focus(function() {
