@@ -1,6 +1,5 @@
 package com.delicloud.platform.cloud.storage.server.config;
 
-import com.delicloud.platform.cloud.storage.server.bo.FileReq;
 import com.delicloud.platform.cloud.storage.server.entity.TFileInfo;
 import com.delicloud.platform.cloud.storage.server.entity.TIndexInfo;
 import lombok.Data;

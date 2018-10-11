@@ -20,10 +20,6 @@ public interface IndexRepo extends MyRepository<TIndexInfo, Long> {
             "WHERE t2.path = ?2 AND t1.update_by = ?1")
     List<TIndexInfo> findAllByUpdateByAndPrevPath(Long account, String prevPath);
 
-    @Modifying
-    @Transactional
-    void deleteAllByUpdateByAndPath(Long account, String path);
-
     TIndexInfo findFirstById(Long id);
 
 }

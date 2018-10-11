@@ -13,5 +13,6 @@ public class TestController {
 //    @Token
     @RequestMapping(value = "/test", method = RequestMethod.POST)
     public void test() {
+//        throw new MyException("测试自定义异常");
     }
 }

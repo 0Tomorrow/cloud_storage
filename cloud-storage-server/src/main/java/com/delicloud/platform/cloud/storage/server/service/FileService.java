@@ -23,10 +23,11 @@ import com.delicloud.platform.common.lang.util.MyBeanUtils;
 import com.delicloud.platform.common.lang.util.StringEncoder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -63,6 +64,10 @@ public class FileService {
         if (account == null) {
             throw new PlatformException("用户未登录");
         }
+//        if (page == null || limit == null) {
+//            return null;
+//        }
+//        Pageable pageable = new PageRequest(page, limit);
         String relativePath = pathConfig.getRelativePath(path);
         List<FileInfoResp> list = new ArrayList<>();
         List<TFileInfo> tList = fileRepo.findAllByUpdateByAndPath(account, relativePath);
@@ -255,5 +260,28 @@ public class FileService {
         String relativePath = pathConfig.getRelativePath(path);
 //        TFileInfo tFileInfo = fileRepo.findFirstByUpdateByAndPathAndFileName(account, relativePath, fileName);
         return "/cloud_storage/user_file/" + account + relativePath + fileName;
+    }
+    
+    public void rename(String id, String newName) {
+        TFileInfo tFileInfo = fileRepo.getOne(Long.parseLong(id));
+        newName = newName + "." + tFileInfo.getType();
+        if (existFileName(tFileInfo.getIndexInfo().getId(), newName)) {
+            throw new PlatformException("新文件名已存在");
+        }
+        String oldFilePath = pathConfig.getAbsoluteFilePath(tFileInfo.getUpdateBy(), tFileInfo.getIndexInfo().getPath(), tFileInfo.getFileName());
+        String newFilePath = pathConfig.getAbsoluteFilePath(tFileInfo.getUpdateBy(), tFileInfo.getIndexInfo().getPath(), newName);
+        FileUtil.changeName(oldFilePath, newFilePath);
+        tFileInfo.setFileName(newName);
+        fileRepo.save(tFileInfo);
+    }
+
+    private boolean existFileName(Long indexId, String fileName) {
+        List<TFileInfo> list = fileRepo.findAllByIndexInfoId(indexId);
+        for (TFileInfo tFileInfo : list) {
+            if (tFileInfo.getFileName().equals(fileName)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

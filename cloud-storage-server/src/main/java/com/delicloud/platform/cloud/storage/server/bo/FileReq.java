@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @Data
 public class FileReq {
-    private Long account;
-    private String path;
-    private String fileName;
+    private String id;
+    private String newName;
 }

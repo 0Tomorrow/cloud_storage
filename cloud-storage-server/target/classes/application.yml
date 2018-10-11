@@ -41,12 +41,19 @@ spring:
             concurrency: 5
         file_merge_output:
           destination: file_merge
-server:
-  port: 8020
 
 logging:
+  config: classpath:mylogback.xml
   level:
-    root: info
+    com.delicloud: info
+
+server:
+  port: 8020
+  undertow:
+    accesslog:
+      dir: ./logs/
+      enabled: true
+      pattern: '%h %l %u %t %r %s %b'
 
 file:
   rootPath: "E://tomcat/apache-tomcat-8.5.34/webapps/ROOT/cloud_storage/user_file/"

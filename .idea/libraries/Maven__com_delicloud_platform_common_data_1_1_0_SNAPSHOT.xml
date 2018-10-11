@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.delicloud.platform:common-data:1.1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/delicloud/platform/common-data/1.1.0-SNAPSHOT/common-data-1.1.0-20181009.094303-27.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/delicloud/platform/common-data/1.1.0-SNAPSHOT/common-data-1.1.0-20181009.094303-27-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/delicloud/platform/common-data/1.1.0-SNAPSHOT/common-data-1.1.0-20181009.094303-27-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

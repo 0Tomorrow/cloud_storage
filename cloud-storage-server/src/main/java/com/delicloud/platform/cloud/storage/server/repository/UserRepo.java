@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UserRepo extends MyRepository<TUserInfo, Long> {
     TUserInfo findFirstByAccountAndPassword(Long account, String password);
 
+    TUserInfo findFirstByAccount(Long account);
+
     @Modifying
     @Transactional
     void deleteAllByAccount(Long account);

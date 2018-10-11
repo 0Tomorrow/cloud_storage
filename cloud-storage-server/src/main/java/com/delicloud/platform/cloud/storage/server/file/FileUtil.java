@@ -43,7 +43,7 @@ public class FileUtil {
         File tempFile = new File(tempPath);
         File file = new File(filePath);
         if (!tempFile.renameTo(file)) {
-            log.error("文件修改名称时异常: {}{}", tempPath, filePath);
+            log.error("文件修改名称时异常: {} , {}", tempPath, filePath);
         }
     }
 
@@ -63,6 +63,7 @@ public class FileUtil {
             newFile.createNewFile();
             FileOutputStream fos = new FileOutputStream(newFile);
             fos.write(file);
+            fos.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -70,7 +71,10 @@ public class FileUtil {
 
     public static String getFileMd5(String path) {
         try {
-            return DigestUtils.md5Hex(new FileInputStream(path));
+            FileInputStream fis = new FileInputStream(path);
+            String md5 = DigestUtils.md5Hex(fis);
+            fis.close();
+            return md5;
         } catch (Exception e) {
             return null;
         }

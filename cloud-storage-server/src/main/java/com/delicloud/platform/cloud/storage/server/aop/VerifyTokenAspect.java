@@ -35,7 +35,7 @@ public class VerifyTokenAspect {
     }
 
     @Before("excudeService()")
-    public void before() throws Throwable {
+    public void before() {
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;
         HttpServletRequest request = sra.getRequest();
@@ -44,8 +44,12 @@ public class VerifyTokenAspect {
             throw new PlatformException("参数中没找到token");
         }
         String encode = new String(Base64.getDecoder().decode(authentication));
-        String account = encode.split(":")[0];
-        String token = encode.split(":")[1];
+        String[] params = encode.split(":");
+        if (params.length < 2) {
+            throw new PlatformException("token格式错误");
+        }
+        String account = params[0];
+        String token = params[1];
 
         String tokenVerify = userTokenCache.getUserToken(account);
         if (!token.equals(tokenVerify)) {

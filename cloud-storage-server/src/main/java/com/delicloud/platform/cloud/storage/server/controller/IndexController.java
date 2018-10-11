@@ -2,6 +2,7 @@ package com.delicloud.platform.cloud.storage.server.controller;
 
 import com.delicloud.platform.cloud.storage.core.bo.IndexInfo;
 import com.delicloud.platform.cloud.storage.core.bo.IndexInfoResp;
+import com.delicloud.platform.cloud.storage.server.bo.IndexReq;
 import com.delicloud.platform.cloud.storage.server.service.IndexService;
 import com.delicloud.platform.common.lang.bo.RespBase;
 import io.swagger.annotations.ApiOperation;
@@ -27,14 +28,16 @@ public class IndexController {
 
     @ApiOperation(value = "创建文件夹", response = RespBase.class, produces = MediaType.APPLICATION_JSON_VALUE)
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public RespBase createIndex(IndexInfo indexInfo) {
+    public RespBase createIndex(@RequestBody IndexInfo indexInfo) {
         indexService.createIndex(indexInfo);
         return RespBase.OK_RESP_BASE;
     }
 
     @ApiOperation(value = "删除文件夹", response = RespBase.class, produces = MediaType.APPLICATION_JSON_VALUE)
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public RespBase deleteIndex(String id, boolean sure) {
+    public RespBase deleteIndex(@RequestBody IndexReq indexReq) {
+        String id = indexReq.getId();
+        boolean sure = indexReq.isSure();
         indexService.deleteIndex(id, sure);
         return RespBase.OK_RESP_BASE;
     }
