@@ -43,21 +43,21 @@ public class FileUtil {
         File tempFile = new File(tempPath);
         File file = new File(filePath);
         if (!tempFile.renameTo(file)) {
-            log.error("文件修改名称时异常: {} , {}", tempPath, filePath);
+            throw new PlatformException("文件修改名称时异常: old : " + tempPath + ", new : " + filePath);
         }
     }
 
     public static void deleteFile(String filePath) {
         File file = new File(filePath);
         if (!file.exists() || !file.delete()) {
-            log.error("删除文件时异常: {}", filePath);
+            throw new PlatformException("删除文件时异常: " + filePath);
         }
     }
 
     public static void createFile(byte[] file, String path) {
         File newFile = new File(path);
         if (newFile.exists()) {
-            log.error("文件已存在");
+            throw new PlatformException("文件已存在");
         }
         try {
             newFile.createNewFile();

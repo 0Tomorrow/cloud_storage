@@ -17,7 +17,7 @@ public class IndexUtil {
     public static void deleteIndex(String indexPath) {
         File file = new File(indexPath);
         if (!file.isDirectory()) {
-            log.error("该路径不是文件夹: {}", indexPath);
+            throw new PlatformException("该路径不是文件夹: " + indexPath);
         }
         if (!file.delete()) {
             throw new PlatformException("文件夹删除失败: " + indexPath);

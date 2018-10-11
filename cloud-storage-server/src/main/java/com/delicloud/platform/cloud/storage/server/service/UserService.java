@@ -1,6 +1,6 @@
 package com.delicloud.platform.cloud.storage.server.service;
 
-import com.delicloud.platform.cloud.storage.server.bo.UserReq;
+import com.delicloud.platform.cloud.storage.server.bo.req.UserReq;
 import com.delicloud.platform.cloud.storage.server.entity.TUserInfo;
 import com.delicloud.platform.cloud.storage.server.repository.UserRepo;
 import com.delicloud.platform.cloud.storage.server.repository.cache.UserTokenCache;

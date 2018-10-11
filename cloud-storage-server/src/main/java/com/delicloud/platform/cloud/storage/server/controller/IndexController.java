@@ -2,7 +2,7 @@ package com.delicloud.platform.cloud.storage.server.controller;
 
 import com.delicloud.platform.cloud.storage.core.bo.IndexInfo;
 import com.delicloud.platform.cloud.storage.core.bo.IndexInfoResp;
-import com.delicloud.platform.cloud.storage.server.bo.IndexReq;
+import com.delicloud.platform.cloud.storage.server.bo.req.IndexReq;
 import com.delicloud.platform.cloud.storage.server.service.IndexService;
 import com.delicloud.platform.common.lang.bo.RespBase;
 import io.swagger.annotations.ApiOperation;

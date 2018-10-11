@@ -1,9 +1,8 @@
 package com.delicloud.platform.cloud.storage.server.controller;
 
-import com.delicloud.platform.cloud.storage.server.bo.UserReq;
+import com.delicloud.platform.cloud.storage.server.bo.req.UserReq;
 import com.delicloud.platform.cloud.storage.server.service.UserService;
 import com.delicloud.platform.common.lang.bo.RespBase;
-import com.delicloud.platform.common.lang.exception.PlatformException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

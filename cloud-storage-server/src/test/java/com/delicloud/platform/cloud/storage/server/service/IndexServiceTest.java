@@ -1,7 +1,7 @@
 //package com.delicloud.platform.cloud.storage.server.service;
 //
 //import com.delicloud.platform.cloud.storage.server.Application;
-//import com.delicloud.platform.cloud.storage.server.bo.FileReq;
+//import com.delicloud.platform.cloud.storage.server.bo.req.FileReq;
 //import com.delicloud.platform.cloud.storage.server.entity.TFileInfo;
 //import com.delicloud.platform.cloud.storage.server.repository.FileRepo;
 //import lombok.extern.slf4j.Slf4j;

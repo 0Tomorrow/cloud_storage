@@ -19,8 +19,8 @@ import java.util.Map;
 @Component
 @Slf4j
 public class LogAspect {
-    @Pointcut("execution(" +
-            "public * com.delicloud.platform.cloud.storage.server.controller..*.*(..))")
+    @Pointcut("execution(public * com.delicloud.platform.cloud.storage.server.controller..*.*(..)) " +
+            "&& !execution(public * com.delicloud.platform.cloud.storage.server.controller.FileController.sliceUpload(..))")
     public void controllerLogService() {
     }
 

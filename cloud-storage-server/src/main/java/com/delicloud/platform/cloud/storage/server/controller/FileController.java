@@ -3,7 +3,7 @@ package com.delicloud.platform.cloud.storage.server.controller;
 import com.delicloud.platform.cloud.storage.core.bo.FileInfo;
 import com.delicloud.platform.cloud.storage.core.bo.FileInfoResp;
 import com.delicloud.platform.cloud.storage.server.aop.Token;
-import com.delicloud.platform.cloud.storage.server.bo.FileReq;
+import com.delicloud.platform.cloud.storage.server.bo.req.FileReq;
 import com.delicloud.platform.cloud.storage.server.bo.PdfImgInfo;
 import com.delicloud.platform.cloud.storage.server.service.FileService;
 import com.delicloud.platform.common.lang.bo.RespBase;
